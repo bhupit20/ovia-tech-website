@@ -6,7 +6,7 @@ import "./chatbot.css";
 const CFG = {
   // Netlify Function endpoint (proxied via /api/ redirect in netlify.toml)
   emailEndpoint: "/api/send-lead",
-  adminEmail:    "hello@oviatech.com",
+  adminEmail:    "allen@oviatech.com",
   botName:       "Aria",
   autoOpenDelay: 8000,   // ms before unread badge appears — 0 to disable
 };
@@ -77,7 +77,7 @@ const KB = [
   },
   {
     keys: ["contact","email","phone","talk","speak","call","reach","whatsapp","message"],
-    reply: "You can reach us at:\n\n📧 hello@oviatech.com\n💬 WhatsApp available\n\nOr let me collect your details and our team will reach out within **24 hours**!",
+    reply: "You can reach us at:\n\n📧 allen@oviatech.com\n💬 WhatsApp available\n\nOr let me collect your details and our team will reach out within **24 hours**!",
     chips: ["Collect my details","Send an email"],
   },
   {
@@ -148,7 +148,7 @@ function buildWidget() {
       </svg>
     </button>
   </div>
-  <p class="cb-footer">Powered by Ovia Tech · hello@oviatech.com</p>
+  <p class="cb-footer">Powered by Ovia Tech · allen@oviatech.com</p>
 </div>`;
 
   const wrap = document.createElement("div");

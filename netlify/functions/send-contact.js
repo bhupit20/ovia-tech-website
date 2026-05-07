@@ -98,7 +98,7 @@ exports.handler = async (event) => {
     await transporter.verify();
 
     await transporter.sendMail({
-      from:    `"Ovia Tech Website" <hello@oviatech.com>`,
+      from:    `"Ovia Tech Website" <allen@oviatech.com>`,
       to:      ADMIN_EMAIL,
       replyTo: email || ADMIN_EMAIL,
       subject: `New Inquiry from ${name} — Ovia Tech`,

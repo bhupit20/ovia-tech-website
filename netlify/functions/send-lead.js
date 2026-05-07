@@ -103,7 +103,7 @@ exports.handler = async (event) => {
     await transporter.verify();
     console.log("SMTP connection verified OK");
     await transporter.sendMail({
-      from:    `"Ovia Tech Chatbot" <hello@oviatech.com>`,
+      from:    `"Ovia Tech Chatbot" <allen@oviatech.com>`,
       to:      ADMIN_EMAIL,
       replyTo: email,
       subject: `New Lead from Ovia Tech Chatbot — ${name}`,
