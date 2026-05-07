@@ -4,9 +4,33 @@
 import "./chatbot.js";
 
 /* ============================================================
-   HERO SPACESHIP
+   HERO SPACESHIP — scroll parallax (image-based)
    ============================================================ */
-import "./spaceship.js";
+const heroShip = document.getElementById("hero-ship");
+const heroGlow = document.querySelector(".hero-ship-glow");
+
+if (heroShip) {
+  let tgt = 0, cur = 0;
+
+  window.addEventListener("scroll", () => { tgt = window.scrollY; }, { passive: true });
+
+  const shipLoop = () => {
+    cur += (tgt - cur) * 0.065;
+    const ty    = cur * 0.38;                   // fly upward
+    const rot   = cur * 0.012 - 1.2;            // tilt nose forward
+    const scale = 1 + cur * 0.00028;            // subtle grow (acceleration)
+
+    heroShip.style.transform = `translateY(-${ty}px) rotate(${rot}deg) scale(${scale})`;
+
+    if (heroGlow) {
+      heroGlow.style.opacity  = Math.max(0, 1 - cur * 0.004).toFixed(3);
+      heroGlow.style.transform = `translateX(-50%) scaleX(${1 + cur * 0.002})`;
+    }
+
+    requestAnimationFrame(shipLoop);
+  };
+  shipLoop();
+}
 
 /* ============================================================
    READING PROGRESS BAR
