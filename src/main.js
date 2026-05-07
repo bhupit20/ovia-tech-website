@@ -383,24 +383,70 @@ if (estimator) {
 }
 
 /* ============================================================
-   CONTACT FORM
+   CONTACT FORM — posts to Netlify Function → SMTP2GO → allen@oviatech.com
    ============================================================ */
-const contactForm = document.querySelector("[data-contact-form]");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
+document.querySelectorAll("[data-contact-form]").forEach((contactForm) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const form = new FormData(contactForm);
-    const name = form.get("name") || "New lead";
-    const email = form.get("email") || "Email not provided";
-    const company = form.get("company") || "Company not provided";
-    const budget = form.get("budget") || "Project type / budget not selected";
-    const timeline = form.get("timeline") || "Timeline not provided";
-    const message = form.get("message") || "No details provided";
-    const subject = encodeURIComponent(`Ovia Tech project inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nBudget: ${budget}\nTimeline: ${timeline}\n\nProject details:\n${message}`
-    );
-    window.location.href = `mailto:hello@oviatech.com?subject=${subject}&body=${body}`;
+
+    const form    = new FormData(contactForm);
+    const btn     = contactForm.querySelector("button[type=submit]");
+    const origTxt = btn ? btn.textContent : "";
+
+    // Loading state
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+
+    // Remove any existing status message
+    const old = contactForm.querySelector(".form-status");
+    if (old) old.remove();
+
+    const payload = {
+      name:     form.get("name")     || "",
+      email:    form.get("email")    || "",
+      company:  form.get("company")  || "",
+      budget:   form.get("budget")   || "",
+      timeline: form.get("timeline") || "",
+      message:  form.get("message")  || "",
+    };
+
+    let ok = false;
+
+    try {
+      const res = await fetch("/api/send-contact", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(payload),
+      });
+      ok = res.ok;
+    } catch {
+      ok = false;
+    }
+
+    // Status message
+    const status = document.createElement("p");
+    status.className = "form-status";
+    status.style.cssText = `
+      margin: 16px 0 0;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      ${ok
+        ? "background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;"
+        : "background:#fef2f2;color:#991b1b;border:1px solid #fecaca;"}
+    `;
+    status.textContent = ok
+      ? "✓ Message sent! We'll get back to you within 24 hours."
+      : "✗ Something went wrong. Please email us directly at allen@oviatech.com";
+
+    btn.insertAdjacentElement("afterend", status);
+
+    // Reset button
+    if (btn) { btn.disabled = false; btn.textContent = origTxt; }
+
+    // Reset form on success
+    if (ok) contactForm.reset();
   });
-}
+});
 
