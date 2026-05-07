@@ -300,14 +300,17 @@ scene.add(stars);
 
 // ─ RESIZE ──────────────────────────────────────────────────
 function resize() {
-  const w = canvas.parentElement.clientWidth;
-  const h = canvas.parentElement.clientHeight || 560;
+  const w = canvas.clientWidth  || canvas.offsetWidth  || 600;
+  const h = canvas.clientHeight || canvas.offsetHeight || 560;
   renderer.setSize(w, h, false);
-  camera.aspect = w / h;
+  camera.aspect = w / Math.max(h, 1);
   camera.updateProjectionMatrix();
 }
+
 window.addEventListener("resize", resize);
-resize();
+
+// Defer first resize — DOM must finish layout before clientWidth is valid
+requestAnimationFrame(() => requestAnimationFrame(resize));
 
 // ─ SCROLL TRACKING ─────────────────────────────────────────
 let targetScroll = 0;
