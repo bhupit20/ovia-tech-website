@@ -52,7 +52,7 @@ const KB = [
   },
   {
     keys: ["price","pricing","cost","how much","rate","budget","affordable","cheap","expensive"],
-    reply: "Here's a quick overview:\n\n🌐 Website: from **$1,200**\n📱 Mobile App: from **$8,000**\n⚙️ SaaS / Software: from **$15,000**\n📈 SEO: from **$500/month**\n\nAll projects begin with a **free consultation** — no obligation. Want a personalised quote?",
+    reply: "Our pricing is flexible and tailored to each project based on scope, features, and timelines.\n\n💻 Business Websites: starting from **$250**\n📱 Mobile Apps: starting from **$2,000**\n⚙️ SaaS Platforms & Custom Software: starting from **$5,000**\n📈 SEO & Growth Marketing: starting from **$300/month**\n\nEvery project includes a free consultation and customised proposal.\n\nTell us a little about your project and we'll recommend the best solution for your budget.",
     chips: ["Get a free quote","Tell me more"],
   },
   {
