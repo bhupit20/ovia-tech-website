@@ -3149,9 +3149,9 @@ textarea { min-height: 140px; resize: vertical; }
   padding: 100px 0;
   text-align: center;
   background:
-    radial-gradient(circle at 50% 0%, rgba(var(--blue-rgb), 0.36), transparent 40rem),
-    radial-gradient(circle at 8% 108%, rgba(140, 109, 255, 0.18), transparent 26rem),
-    linear-gradient(135deg, #08111f, #04080f);
+    radial-gradient(circle at 74% 10%, rgba(var(--blue-rgb), 0.42), transparent 32rem),
+    radial-gradient(circle at 8% 108%, rgba(140, 109, 255, 0.2), transparent 26rem),
+    linear-gradient(135deg, #ffffff, #ffffff);
 }
 
 .page-cta::before {
@@ -3159,8 +3159,8 @@ textarea { min-height: 140px; resize: vertical; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.028) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at 50% 40%, black 20%, transparent 72%);
   pointer-events: none;
@@ -3169,13 +3169,29 @@ textarea { min-height: 140px; resize: vertical; }
 .page-cta h2 {
   max-width: 720px;
   margin: 0 auto 20px;
+  color: var(--light-text);
 }
 
 .page-cta p {
   max-width: 580px;
   margin: 0 auto;
   font-size: 17px;
-  color: rgba(232, 242, 255, 0.68);
+  color: var(--light-muted);
+}
+
+.page-cta .eyebrow {
+  color: var(--blue);
+}
+
+.page-cta .button.secondary {
+  color: var(--light-text);
+  border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.page-cta .button.secondary:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.28);
 }
 
 .page-cta .button-row {
