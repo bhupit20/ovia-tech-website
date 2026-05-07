@@ -10,8 +10,7 @@ const SMTP = {
   },
 };
 
-// Change this to any inbox you can definitely check (e.g. Gmail)
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "bhupindersinght20@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "allen@oviatech.com";
 
 exports.handler = async (event) => {
   // Only POST
