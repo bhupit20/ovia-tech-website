@@ -2,6 +2,7 @@
    HERO SPACESHIP — Three.js scene in .hero-visual
    Scroll down → ship flies upward with forward tilt
    ============================================================ */
+(async () => {
 
 const canvas = document.getElementById("spaceship-canvas");
 if (!canvas) return;
@@ -368,3 +369,5 @@ const clock = new THREE.Clock();
 
   renderer.render(scene, camera);
 }());
+
+})(); // end async IIFE
