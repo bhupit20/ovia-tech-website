@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 
 const SMTP = {
   host: "mail.smtp2go.com",
-  port: 587,
-  secure: false,              // STARTTLS
+  port: 465,
+  secure: true,               // SSL
   auth: {
     user: "oviatech.com",
     pass: process.env.SMTP_PASS || "EZPCFCaFmhR04UlZ",
@@ -103,7 +103,7 @@ exports.handler = async (event) => {
     await transporter.verify();
     console.log("SMTP connection verified OK");
     await transporter.sendMail({
-      from:    `"Ovia Tech Chatbot" <hello@oviatech.com>`,
+      from:    `"Ovia Tech Chatbot" <allen@oviatech.com>`,
       to:      ADMIN_EMAIL,
       replyTo: email,
       subject: `New Lead from Ovia Tech Chatbot — ${name}`,
