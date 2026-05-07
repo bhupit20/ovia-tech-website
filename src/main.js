@@ -4,40 +4,49 @@
 import "./chatbot.js";
 
 /* ============================================================
-   HERO SPACESHIP — scroll parallax
+   HERO SPACESHIP — float bob + scroll fly-up (single RAF loop)
+   CSS animation removed — JS owns all transforms to prevent conflict
    ============================================================ */
 const heroShip = document.getElementById("hero-ship");
 const heroGlow = document.querySelector(".hero-ship-glow");
 
 if (heroShip) {
-  let tgt = 0, cur = 0;
+  let scrollTgt = 0, scrollCur = 0;
 
-  window.addEventListener("scroll", () => { tgt = window.scrollY; }, { passive: true });
+  window.addEventListener("scroll", () => {
+    scrollTgt = window.scrollY;
+  }, { passive: true });
 
   const shipLoop = () => {
-    // Smooth lerp — 0.07 feels responsive without being jerky
-    cur += (tgt - cur) * 0.07;
+    // Lerp scroll position
+    scrollCur += (scrollTgt - scrollCur) * 0.07;
 
-    // Fly upward — stronger factor for visible movement
-    const ty    = cur * 0.65;
-    // Nose tilts forward as it accelerates
-    const rot   = cur * 0.018 - 1.4;
-    // Subtle scale-up (launch acceleration feel)
-    const scale = 1 + cur * 0.0004;
+    const t = Date.now() / 1000;
 
+    // ── Float bob (runs always, sine wave)
+    const floatY = Math.sin(t * 1.5) * 22;       // ±22px vertical bob
+    const floatR = Math.sin(t * 1.5) * 1.5;      // ±1.5° rock
+
+    // ── Scroll: fly upward, tilt nose forward
+    const scrollY   = scrollCur * 0.75;           // strong upward movement
+    const scrollRot = scrollCur * 0.022;          // nose forward tilt
+    const scale     = 1 + scrollCur * 0.0005;     // subtle grow
+
+    // Combine: float + scroll (scroll progressively overrides float)
     heroShip.style.transform =
-      `translateY(-${ty}px) rotate(${rot}deg) scale(${scale})`;
+      `translateY(${floatY - scrollY}px) rotate(${floatR - scrollRot}deg) scale(${scale})`;
 
+    // ── Glow reacts to scroll
     if (heroGlow) {
-      // Glow intensifies then fades as ship flies away
-      const glowScale = 1 + cur * 0.004;
-      const glowOp    = Math.max(0, 1 - cur * 0.005);
+      const glowOp = Math.max(0, 1 - scrollCur * 0.006);
+      const glowSc = 1 + scrollCur * 0.005;
       heroGlow.style.opacity   = glowOp.toFixed(3);
-      heroGlow.style.transform = `translateX(-50%) scaleX(${glowScale})`;
+      heroGlow.style.transform = `translateX(-50%) scaleX(${glowSc})`;
     }
 
     requestAnimationFrame(shipLoop);
   };
+
   shipLoop();
 }
 

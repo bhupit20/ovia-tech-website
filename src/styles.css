@@ -470,7 +470,7 @@ p {
 .hero-ship-wrap {
   position: relative;
   width: 100%;
-  height: 640px;
+  height: 680px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -481,14 +481,14 @@ p {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 620px;
+  max-width: 720px;        /* bigger */
   height: auto;
   -webkit-mask-image: radial-gradient(ellipse 66% 70% at 50% 46%, black 38%, rgba(0,0,0,0.65) 60%, transparent 80%);
   mask-image:         radial-gradient(ellipse 66% 70% at 50% 46%, black 38%, rgba(0,0,0,0.65) 60%, transparent 80%);
-  filter: drop-shadow(0 0 44px rgba(235,70,4,0.58))
-          drop-shadow(0 0 100px rgba(140,100,255,0.28))
-          brightness(1.1) contrast(1.07);
-  animation: ship-float 4.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 52px rgba(235,70,4,0.65))
+          drop-shadow(0 0 110px rgba(140,100,255,0.32))
+          brightness(1.12) contrast(1.08);
+  /* NO CSS animation — JS handles float + scroll together to avoid transform conflict */
   will-change: transform;
   user-select: none;
 }
@@ -510,10 +510,7 @@ p {
   pointer-events: none;
 }
 
-@keyframes ship-float {
-  0%,100% { transform: translateY(0px)  rotate(-1.4deg); }
-  50%     { transform: translateY(-24px) rotate(1.4deg); }
-}
+/* ship-float handled in JS — no CSS keyframe needed */
 
 @keyframes glow-pulse {
   0%,100% { opacity: 0.75; transform: translateX(-50%) scaleX(1);    }
