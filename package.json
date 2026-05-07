@@ -1,0 +1,19 @@
+{
+  "name": "ovia-tech-website",
+  "version": "1.0.0",
+  "description": "Production-grade multipage marketing website for Ovia Tech LLC.",
+  "private": true,
+  "scripts": {
+    "start": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.59.1",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "nodemailer": "^8.0.7",
+    "three": "^0.184.0"
+  }
+}
