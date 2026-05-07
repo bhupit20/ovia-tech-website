@@ -10,7 +10,8 @@ const SMTP = {
   },
 };
 
-const ADMIN_EMAIL = "hello@oviatech.com";
+// Change this to any inbox you can definitely check (e.g. Gmail)
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "bhupindersinght20@gmail.com";
 
 exports.handler = async (event) => {
   // Only POST
@@ -99,6 +100,9 @@ exports.handler = async (event) => {
 
   try {
     const transporter = nodemailer.createTransport(SMTP);
+    // Verify SMTP connection before sending
+    await transporter.verify();
+    console.log("SMTP connection verified OK");
     await transporter.sendMail({
       from:    `"Ovia Tech Chatbot" <hello@oviatech.com>`,
       to:      ADMIN_EMAIL,
@@ -114,7 +118,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ ok: true }),
     };
   } catch (err) {
-    console.error("Email error:", err.message);
+    console.error("Email error:", err.message, err.code, err.response);
     return {
       statusCode: 500,
       headers,
