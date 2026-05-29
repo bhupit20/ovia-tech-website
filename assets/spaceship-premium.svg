@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Premium futuristic Ovia Tech spaceship</title>
+  <desc id="desc">A sleek orange and blue sci-fi spaceship with glowing engine trails and holographic highlights.</desc>
+  <defs>
+    <radialGradient id="aura" cx="50%" cy="48%" r="52%">
+      <stop offset="0" stop-color="#ff8a2a" stop-opacity=".38"/>
+      <stop offset=".42" stop-color="#8c6dff" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#060914" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hull" x1="178" x2="722" y1="284" y2="284" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111a34"/>
+      <stop offset=".18" stop-color="#f3f7ff"/>
+      <stop offset=".5" stop-color="#ffffff"/>
+      <stop offset=".82" stop-color="#c9d8ff"/>
+      <stop offset="1" stop-color="#17223f"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="232" x2="664" y1="330" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b63202"/>
+      <stop offset=".48" stop-color="#eb4604"/>
+      <stop offset="1" stop-color="#ffb168"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="370" x2="555" y1="174" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dff9ff"/>
+      <stop offset=".38" stop-color="#70d8ff"/>
+      <stop offset="1" stop-color="#3b3cff"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="190" x2="708" y1="414" y2="414" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#29d4ff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#7dd3fc" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#8c6dff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" values="1 0 0 0 0.93 0 1 0 0 0.28 0 0 1 0 0.02 0 0 0 .85 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="blueBloom" x="-40%" y="-60%" width="180%" height="220%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" values="0 0 0 0 .15 0 0 0 0 .75 0 0 0 0 1 0 0 0 .8 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#020617" flood-opacity=".52"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#eb4604" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="620" fill="none"/>
+  <ellipse cx="450" cy="310" rx="372" ry="244" fill="url(#aura)"/>
+
+  <g opacity=".7" filter="url(#blueBloom)">
+    <path d="M142 408c97-44 181-63 308-63 126 0 212 19 308 63" fill="none" stroke="url(#blueGlow)" stroke-width="2"/>
+    <path d="M178 454c86-31 168-45 272-45 103 0 185 14 272 45" fill="none" stroke="url(#blueGlow)" stroke-width="1.5" opacity=".62"/>
+    <circle cx="198" cy="402" r="4" fill="#7dd3fc"/>
+    <circle cx="706" cy="405" r="4" fill="#8c6dff"/>
+    <circle cx="450" cy="345" r="3.5" fill="#ff9b4f"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M155 338c76-48 159-83 249-105 128-32 259-25 385 27-78 52-166 87-263 104-124 22-247 13-371-26Z" fill="url(#hull)"/>
+    <path d="M186 336c95-48 182-75 292-86 98-10 191 1 279 31-64 34-145 58-241 72-107 16-217 10-330-17Z" fill="#f7fbff" opacity=".86"/>
+    <path d="M258 348c55-58 121-98 198-120 87-24 168-17 244 20-52 16-101 44-146 84-94 23-193 28-296 16Z" fill="url(#orange)" filter="url(#softGlow)"/>
+    <path d="M324 266c62-80 145-129 248-148 5 57-9 103-43 140-58 21-126 24-205 8Z" fill="url(#orange)"/>
+    <path d="M372 227c43-43 92-70 147-79 1 34-10 61-33 82-34 14-72 13-114-3Z" fill="url(#glass)" opacity=".95"/>
+    <path d="M396 219c31-28 66-46 103-54-1 18-8 34-22 48-22 10-49 12-81 6Z" fill="#f7ffff" opacity=".28"/>
+
+    <path d="M222 344 92 392c-24 9-38 26-42 51 74-26 148-41 222-44 20-17 37-35 50-54Z" fill="#101a31"/>
+    <path d="M678 310 814 262c25-9 44-4 56 16-50 46-115 79-195 99-14-17-19-39 3-67Z" fill="#141e38"/>
+    <path d="M200 356c95 31 194 44 298 38 98-5 190-28 277-68-20 35-57 65-110 90-146 69-302 73-465 12-34-13-49-37-45-72 15-4 30-4 45 0Z" fill="#0d162c" opacity=".95"/>
+
+    <path d="M254 389c83 25 164 36 244 31 77-4 148-22 214-53" fill="none" stroke="#7dd3fc" stroke-width="4" opacity=".45"/>
+    <path d="M275 310c96 20 192 19 288-3" fill="none" stroke="#0f172a" stroke-width="5" opacity=".18"/>
+    <path d="M307 292c57 10 114 10 171-1" fill="none" stroke="#ffffff" stroke-width="3" opacity=".38"/>
+
+    <g filter="url(#softGlow)">
+      <path d="M170 421c-38 10-78 26-120 48 52 7 108 7 168-1 28-4 51-17 69-39-37-11-76-14-117-8Z" fill="#eb4604"/>
+      <path d="M186 438c-30 4-62 13-96 27 39 2 79 0 120-5 19-3 35-11 48-25-23-3-47-2-72 3Z" fill="#ffb168" opacity=".92"/>
+    </g>
+
+    <g opacity=".95">
+      <circle cx="356" cy="348" r="9" fill="#0f172a"/>
+      <circle cx="356" cy="348" r="4" fill="#7dd3fc"/>
+      <circle cx="446" cy="358" r="9" fill="#0f172a"/>
+      <circle cx="446" cy="358" r="4" fill="#7dd3fc"/>
+      <circle cx="536" cy="348" r="9" fill="#0f172a"/>
+      <circle cx="536" cy="348" r="4" fill="#7dd3fc"/>
+    </g>
+  </g>
+
+  <g opacity=".65">
+    <path d="M316 494c87 19 176 19 267 0" fill="none" stroke="#eb4604" stroke-width="2" stroke-dasharray="8 12"/>
+    <path d="M350 526c64 10 130 10 198 0" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="5 10"/>
+    <circle cx="297" cy="493" r="3" fill="#eb4604"/>
+    <circle cx="601" cy="493" r="3" fill="#7dd3fc"/>
+  </g>
+</svg>

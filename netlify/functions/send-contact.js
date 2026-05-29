@@ -6,7 +6,7 @@ const SMTP = {
   secure: true,
   auth: {
     user: "oviatech.com",
-    pass: process.env.SMTP_PASS || "EZPCFCaFmhR04UlZ",
+    pass: process.env.SMTP_PASS,
   },
 };
 
@@ -34,6 +34,11 @@ exports.handler = async (event) => {
 
   if (!name || !message) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: "Name and message are required" }) };
+  }
+
+  if (!process.env.SMTP_PASS) {
+    console.error("Missing SMTP_PASS environment variable");
+    return { statusCode: 500, headers, body: JSON.stringify({ error: "Email service is not configured" }) };
   }
 
   const html = `

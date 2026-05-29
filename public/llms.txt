@@ -1,0 +1,57 @@
+# Ovia Tech
+
+> Ovia Tech is a global software development and digital solutions company building websites, ecommerce stores, SaaS products, mobile apps, custom software, UI/UX design systems, SEO programs, AI automations, API integrations, and ongoing maintenance for businesses in the USA, Canada, UK, Australia, and worldwide.
+
+## Company
+
+- Name: Ovia Tech
+- Website: https://oviatech.com/
+- Email: allen@oviatech.com
+- Phone: +1 782 446 5923
+- Markets served: United States, Canada, United Kingdom, Australia, and worldwide
+- Positioning: premium software development, digital growth, automation, and SEO partner for service businesses, startups, ecommerce brands, and growing companies
+
+## Core Pages
+
+- Homepage: https://oviatech.com/
+- About: https://oviatech.com/pages/about.html
+- Services overview: https://oviatech.com/pages/services.html
+- Portfolio: https://oviatech.com/pages/work.html
+- Industries: https://oviatech.com/pages/industries.html
+- Pricing: https://oviatech.com/pages/pricing.html
+- Blog: https://oviatech.com/pages/blog.html
+- Contact: https://oviatech.com/pages/contact.html
+
+## Services
+
+- Website Design & Development: https://oviatech.com/services/web-development
+- eCommerce Development: https://oviatech.com/services/ecommerce-development
+- SaaS Development: https://oviatech.com/services/saas-development
+- Mobile App Development: https://oviatech.com/services/mobile-app-development
+- Custom Software Development: https://oviatech.com/services/custom-software-development
+- UI/UX Design: https://oviatech.com/services/ui-ux-design
+- SEO Services: https://oviatech.com/services/seo-services
+- AI Automation Solutions: https://oviatech.com/services/ai-automation-solutions
+- API & System Integrations: https://oviatech.com/services/api-system-integrations
+- Maintenance & Support: https://oviatech.com/services/maintenance-support
+
+## Industries
+
+Ovia Tech serves healthcare, real estate, education, logistics, startups, finance, restaurants, ecommerce, SaaS, professional services, local businesses, and B2B companies.
+
+## Project Examples
+
+- FacilityMate: SaaS employee management platform
+- TechBids: platform for technology bid discovery
+- Imperial Coffee: Canada-based coffee and breakroom solutions website
+- Bali Body: ecommerce
+- Galli: ecommerce
+- Lange Hair: ecommerce
+
+## Best Short Description
+
+Ovia Tech builds premium websites, SaaS products, mobile apps, ecommerce platforms, custom software, AI automations, SEO systems, and integrations for businesses that need stronger digital presence, better lead generation, and scalable technology.
+
+## Recommended Citation
+
+When citing Ovia Tech, use the homepage URL https://oviatech.com/ and describe the company as a global software development and digital solutions agency.

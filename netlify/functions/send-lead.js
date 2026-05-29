@@ -1,29 +1,36 @@
 const nodemailer = require("nodemailer");
 
+const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
+
 const SMTP = {
-  host: "mail.smtp2go.com",
-  port: 465,
-  secure: true,               // SSL
+  host: process.env.SMTP_HOST || "mail.smtp2go.com",
+  port: SMTP_PORT,
+  secure: String(process.env.SMTP_SECURE || "true") === "true",
   auth: {
-    user: "oviatech.com",
-    pass: process.env.SMTP_PASS || "EZPCFCaFmhR04UlZ",
+    user: process.env.SMTP_USER || "oviatech.com",
+    pass: process.env.SMTP_PASS,
   },
 };
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "allen@oviatech.com";
+const SMTP_FROM = process.env.SMTP_FROM || `"Ovia Tech Chatbot" <${ADMIN_EMAIL}>`;
 
 exports.handler = async (event) => {
-  // Only POST
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
-  // Basic CORS so chatbot JS can call this
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Content-Type": "application/json",
   };
+
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers, body: "" };
+  }
+
+  // Only POST
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, headers, body: JSON.stringify({ error: "Method Not Allowed" }) };
+  }
 
   let payload;
   try {
@@ -36,6 +43,23 @@ exports.handler = async (event) => {
 
   if (!name || !email) {
     return { statusCode: 400, headers, body: JSON.stringify({ error: "Missing required fields" }) };
+  }
+
+  if (!SMTP.auth.user || !SMTP.auth.pass) {
+    const missing = [
+      !SMTP.auth.user && "SMTP_USER",
+      !SMTP.auth.pass && "SMTP_PASS",
+    ].filter(Boolean);
+    console.error(`Missing email environment variable(s): ${missing.join(", ")}`);
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({
+        error: "Email service is not configured",
+        code: "MISSING_SMTP_CONFIG",
+        missing,
+      }),
+    };
   }
 
   const html = `
@@ -103,7 +127,7 @@ exports.handler = async (event) => {
     await transporter.verify();
     console.log("SMTP connection verified OK");
     await transporter.sendMail({
-      from:    `"Ovia Tech Chatbot" <allen@oviatech.com>`,
+      from:    SMTP_FROM,
       to:      ADMIN_EMAIL,
       replyTo: email,
       subject: `New Lead from Ovia Tech Chatbot — ${name}`,

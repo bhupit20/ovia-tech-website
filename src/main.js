@@ -2,48 +2,76 @@
    CHATBOT
    ============================================================ */
 import "./chatbot.js";
+import { saveLeadToSupabase } from "./supabase-leads.js";
 
 /* ============================================================
-   HERO SPACESHIP — float bob + scroll fly-up (single RAF loop)
-   CSS animation removed — JS owns all transforms to prevent conflict
+   CURSOR FOLLOWING DOT
    ============================================================ */
-const heroShip = document.getElementById("hero-ship");
-const heroGlow = document.querySelector(".hero-ship-glow");
+const supportsCursorFollower = window.matchMedia("(min-width: 993px) and (pointer: fine)").matches;
 
-if (heroShip) {
-  let scrollTgt = 0, scrollCur = 0;
+if (supportsCursorFollower) {
+  const cursorFollowerDot = document.createElement("span");
 
-  window.addEventListener("scroll", () => {
-    scrollTgt = window.scrollY;
-  }, { passive: true });
+  cursorFollowerDot.id = "cursorFollowerDot";
+  cursorFollowerDot.className = "cursorFollowerDot is-hidden";
+  document.body.append(cursorFollowerDot);
+  document.body.classList.add("has-cursor-follower");
 
-  const shipLoop = () => {
-    // Lerp scroll position
-    scrollCur += (scrollTgt - scrollCur) * 0.07;
+  let mouseX = -100;
+  let mouseY = -100;
+  let xpDot = -100;
+  let ypDot = -100;
+  let hasMoved = false;
 
-    const t = Date.now() / 1000;
+  const interactiveSelector = "a, button, [role='button'], input[type='submit'], .button, .nav-toggle, .cb-toggle, .cb-send, .cb-chip, .cb-close";
 
-    // ── Float bob (runs always, sine wave)
-    const floatY = Math.sin(t * 1.5) * 22;       // ±22px vertical bob
-    const floatR = Math.sin(t * 1.5) * 1.5;      // ±1.5° rock
+  document.addEventListener("mousemove", (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
 
-    // ── Scroll: fly upward, tilt nose forward
-    const scrollY   = scrollCur * 0.75;           // strong upward movement
-    const scrollRot = scrollCur * 0.022;          // nose forward tilt
-    const scale     = 1 + scrollCur * 0.0005;     // subtle grow
-
-    // Combine: float + scroll (scroll progressively overrides float)
-    heroShip.style.transform =
-      `translateY(${floatY - scrollY}px) rotate(${floatR - scrollRot}deg) scale(${scale})`;
-
-    // ── Glow reacts to scroll
-    if (heroGlow) {
-      const glowOp = Math.max(0, 1 - scrollCur * 0.006);
-      const glowSc = 1 + scrollCur * 0.005;
-      heroGlow.style.opacity   = glowOp.toFixed(3);
-      heroGlow.style.transform = `translateX(-50%) scaleX(${glowSc})`;
+    if (!hasMoved) {
+      hasMoved = true;
+      cursorFollowerDot.classList.remove("is-hidden");
     }
 
+    const isHovering = Boolean(event.target.closest(interactiveSelector));
+    cursorFollowerDot.classList.toggle("is-hovering", isHovering);
+  }, { passive: true });
+
+  document.addEventListener("mouseleave", () => {
+    cursorFollowerDot.classList.add("is-hidden");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    if (!hasMoved) return;
+    cursorFollowerDot.classList.remove("is-hidden");
+  });
+
+  const animateCursorFollower = () => {
+    xpDot += (mouseX - xpDot) / 12;
+    ypDot += (mouseY - ypDot) / 12;
+
+    cursorFollowerDot.style.left = `${xpDot}px`;
+    cursorFollowerDot.style.top = `${ypDot}px`;
+
+    requestAnimationFrame(animateCursorFollower);
+  };
+
+  animateCursorFollower();
+}
+
+/* ============================================================
+   HERO DASHBOARD — gentle float
+   ============================================================ */
+const heroShip = document.getElementById("hero-ship");
+
+if (heroShip) {
+  const shipLoop = () => {
+    const t = Date.now() / 1000;
+    const floatY = Math.sin(t * 1.5) * 18;
+    const floatR = Math.sin(t * 1.5) * 1.2;
+    heroShip.style.transform =
+      `translateY(${floatY}px) rotate(${floatR}deg)`;
     requestAnimationFrame(shipLoop);
   };
 
@@ -112,8 +140,30 @@ if (tocNav && articleMain) {
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
+const mobileNavQuery = window.matchMedia("(max-width: 980px)");
 
 if (navToggle && nav) {
+  nav.querySelectorAll(".nav-drop-trigger").forEach((trigger) => {
+    trigger.setAttribute("aria-expanded", "false");
+
+    trigger.addEventListener("click", (event) => {
+      if (!mobileNavQuery.matches) return;
+
+      event.preventDefault();
+      const dropdown = trigger.closest(".nav-dropdown");
+      if (!dropdown) return;
+
+      const isOpen = dropdown.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+
+      nav.querySelectorAll(".nav-dropdown.is-open").forEach((otherDropdown) => {
+        if (otherDropdown === dropdown) return;
+        otherDropdown.classList.remove("is-open");
+        otherDropdown.querySelector(".nav-drop-trigger")?.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+
   navToggle.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!expanded));
@@ -124,12 +174,132 @@ if (navToggle && nav) {
   // Close nav when clicking a link
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
+      if (mobileNavQuery.matches && link.classList.contains("nav-drop-trigger")) return;
+
       nav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
       document.body.classList.remove("nav-open");
+      nav.querySelectorAll(".nav-dropdown.is-open").forEach((dropdown) => {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelector(".nav-drop-trigger")?.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+
+  mobileNavQuery.addEventListener("change", () => {
+    nav.querySelectorAll(".nav-dropdown.is-open").forEach((dropdown) => {
+      dropdown.classList.remove("is-open");
+      dropdown.querySelector(".nav-drop-trigger")?.setAttribute("aria-expanded", "false");
     });
   });
 }
+
+/* ============================================================
+   FAQ LAYOUT ENHANCEMENT
+   ============================================================ */
+document.querySelectorAll(".faq-grid").forEach((grid) => {
+  const section = grid.closest(".section");
+  if (!section || grid.closest(".faq-layout")) return;
+
+  section.classList.add("faq-section");
+
+  const layout = document.createElement("div");
+  layout.className = "container faq-layout reveal";
+
+  const supportCard = document.createElement("aside");
+  supportCard.className = "faq-support-card";
+  supportCard.innerHTML = `
+    <span class="faq-support-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v6A3.5 3.5 0 0 1 16.5 15H12l-5 4v-4A3.5 3.5 0 0 1 4 11.5v-6Z"/></svg>
+    </span>
+    <h3>Do you have more questions?</h3>
+    <p>Tell us what you are planning. We will help you understand the right service, scope, timeline, and next step.</p>
+    <a class="button primary" href="/pages/contact.html">Ask Ovia Tech</a>
+  `;
+
+  grid.classList.remove("container");
+  grid.before(layout);
+  layout.append(grid, supportCard);
+
+  const items = [...grid.querySelectorAll(".faq-item")];
+  if (items.length && !items.some((item) => item.open)) {
+    items[0].open = true;
+  }
+
+  const getClosedFaqHeight = (item) => {
+    const summary = item.querySelector("summary");
+    const styles = window.getComputedStyle(item);
+    return summary.offsetHeight + parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+  };
+
+  const clearFaqAnimationStyles = (item) => {
+    item.style.height = "";
+    item.style.overflow = "";
+    item.dataset.animating = "";
+  };
+
+  const closeFaqItem = (item) => {
+    if (!item.open || item.dataset.animating === "true") return;
+
+    item.dataset.animating = "true";
+    item.style.overflow = "hidden";
+
+    const startHeight = item.offsetHeight;
+    const endHeight = getClosedFaqHeight(item);
+    const animation = item.animate(
+      { height: [`${startHeight}px`, `${endHeight}px`] },
+      { duration: 280, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+    );
+
+    item.style.height = `${startHeight}px`;
+
+    animation.onfinish = () => {
+      item.open = false;
+      clearFaqAnimationStyles(item);
+    };
+
+    animation.oncancel = () => clearFaqAnimationStyles(item);
+  };
+
+  const openFaqItem = (item) => {
+    if (item.open || item.dataset.animating === "true") return;
+
+    item.dataset.animating = "true";
+    item.style.overflow = "hidden";
+
+    const startHeight = getClosedFaqHeight(item);
+    item.open = true;
+    const endHeight = item.offsetHeight;
+    item.style.height = `${startHeight}px`;
+
+    const animation = item.animate(
+      { height: [`${startHeight}px`, `${endHeight}px`] },
+      { duration: 320, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+    );
+
+    animation.onfinish = () => clearFaqAnimationStyles(item);
+    animation.oncancel = () => clearFaqAnimationStyles(item);
+  };
+
+  items.forEach((item) => {
+    const summary = item.querySelector("summary");
+    if (!summary) return;
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (item.open) {
+        closeFaqItem(item);
+        return;
+      }
+
+      items.forEach((otherItem) => {
+        if (otherItem !== item) closeFaqItem(otherItem);
+      });
+      openFaqItem(item);
+    });
+  });
+});
 
 /* Header scroll — transparent on hero, white pill on scroll */
 const setHeaderState = () => {
@@ -199,136 +369,6 @@ const counterObserver = new IntersectionObserver(
 document.querySelectorAll("[data-count]").forEach((el) => counterObserver.observe(el));
 
 /* ============================================================
-   THREE.JS HERO SCENE
-   ============================================================ */
-const sceneCanvas = document.querySelector("[data-ovia-scene]");
-
-if (sceneCanvas) {
-  const THREE = await import("three");
-  const renderer = new THREE.WebGLRenderer({
-    canvas: sceneCanvas,
-    antialias: true,
-    alpha: true,
-    preserveDrawingBuffer: true,
-    powerPreference: "high-performance"
-  });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.set(0, 0, 7.2);
-
-  const group = new THREE.Group();
-  scene.add(group);
-
-  const coreMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0xeb4604,
-    roughness: 0.2,
-    metalness: 0.3,
-    transmission: 0.38,
-    thickness: 1.3,
-    transparent: true,
-    opacity: 0.84
-  });
-
-  const wireMaterial = new THREE.MeshBasicMaterial({
-    color: 0xeb4604,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.15
-  });
-
-  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(1.52, 2), coreMaterial);
-  const wire = new THREE.Mesh(new THREE.IcosahedronGeometry(1.82, 2), wireMaterial);
-  group.add(core, wire);
-
-  const ringMaterial = new THREE.MeshBasicMaterial({
-    color: 0x8c6dff,
-    transparent: true,
-    opacity: 0.3,
-    side: THREE.DoubleSide
-  });
-
-  [0, 1, 2].forEach((i) => {
-    const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(2.4 + i * 0.44, 0.007, 12, 180),
-      ringMaterial
-    );
-    ring.rotation.x = Math.PI / 2.8 + i * 0.48;
-    ring.rotation.y = i * 0.76;
-    group.add(ring);
-  });
-
-  const particleGeometry = new THREE.BufferGeometry();
-  const particleCount = 160;
-  const positions = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount; i++) {
-    const radius = 2.8 + Math.random() * 2.4;
-    const angle = Math.random() * Math.PI * 2;
-    const height = (Math.random() - 0.5) * 4.6;
-    positions[i * 3] = Math.cos(angle) * radius;
-    positions[i * 3 + 1] = height;
-    positions[i * 3 + 2] = Math.sin(angle) * radius;
-  }
-  particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-  const particles = new THREE.Points(
-    particleGeometry,
-    new THREE.PointsMaterial({
-      color: 0xf97316,
-      size: 0.03,
-      transparent: true,
-      opacity: 0.58
-    })
-  );
-  group.add(particles);
-
-  scene.add(new THREE.PointLight(0xeb4604, 38, 14)).position.set(3.5, 2.4, 4.2);
-  scene.add(new THREE.PointLight(0x8c6dff, 26, 12)).position.set(-4, -1.8, 3.6);
-  scene.add(new THREE.AmbientLight(0xffffff, 0.78));
-
-  const pointer = { x: 0, y: 0 };
-
-  const resizeScene = () => {
-    const rect = sceneCanvas.parentElement.getBoundingClientRect();
-    renderer.setSize(rect.width, rect.height, false);
-    camera.aspect = rect.width / Math.max(rect.height, 1);
-    camera.updateProjectionMatrix();
-    group.position.x = rect.width < 900 ? 0.8 : 2.2;
-    group.position.y = rect.width < 900 ? -0.2 : 0.1;
-    group.scale.setScalar(rect.width < 700 ? 0.66 : 1);
-  };
-
-  window.addEventListener("resize", resizeScene);
-  resizeScene();
-
-  window.addEventListener(
-    "pointermove",
-    (e) => {
-      pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
-    },
-    { passive: true }
-  );
-
-  const clock = new THREE.Clock();
-  const animate = () => {
-    const t = clock.getElapsedTime();
-    core.rotation.x = t * 0.17;
-    core.rotation.y = t * 0.31;
-    wire.rotation.x = t * -0.13;
-    wire.rotation.y = t * 0.21;
-    particles.rotation.y = t * 0.034;
-    group.rotation.y += (pointer.x * 0.17 - group.rotation.y) * 0.034;
-    group.rotation.x += (-pointer.y * 0.1 - group.rotation.x) * 0.034;
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-  };
-
-  animate();
-}
-
-/* ============================================================
    TILT EFFECT
    ============================================================ */
 document.querySelectorAll(".tilt-card, .service-card, .work-card, .industry-card, .price-card").forEach((card) => {
@@ -383,7 +423,7 @@ if (estimator) {
 }
 
 /* ============================================================
-   CONTACT FORM — posts to Netlify Function → SMTP2GO → allen@oviatech.com
+   CONTACT FORM — saves to Supabase first, then falls back to hosting endpoint
    ============================================================ */
 document.querySelectorAll("[data-contact-form]").forEach((contactForm) => {
   contactForm.addEventListener("submit", async (e) => {
@@ -412,14 +452,25 @@ document.querySelectorAll("[data-contact-form]").forEach((contactForm) => {
     let ok = false;
 
     try {
-      const res = await fetch("/api/send-contact", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify(payload),
+      await saveLeadToSupabase({
+        ...payload,
+        source: "contact_form",
       });
-      ok = res.ok;
-    } catch {
-      ok = false;
+      notifyContactByEmail(payload);
+      ok = true;
+    } catch (err) {
+      console.error("Supabase contact save failed:", err);
+
+      try {
+        const res = await fetch("/api/send-contact", {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          body:    JSON.stringify(payload),
+        });
+        ok = res.ok;
+      } catch {
+        ok = false;
+      }
     }
 
     // Status message
@@ -450,3 +501,146 @@ document.querySelectorAll("[data-contact-form]").forEach((contactForm) => {
   });
 });
 
+function notifyContactByEmail(payload) {
+  fetch("/api/send-contact", {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify(payload),
+  }).catch((err) => {
+    console.error("Contact email notification failed:", err);
+  });
+}
+
+/* ============================================================
+   CONSULTATION MODAL
+   ============================================================ */
+const consultationModal = document.querySelector("[data-consultation-modal]");
+
+if (consultationModal) {
+  const consultationPanel = consultationModal.querySelector(".consultation-modal-panel");
+  const consultationForm = consultationModal.querySelector("[data-consultation-form]");
+  const consultationStatus = consultationModal.querySelector("[data-consultation-status]");
+  const consultationOpeners = document.querySelectorAll("[data-consultation-open]");
+  const consultationClosers = consultationModal.querySelectorAll("[data-consultation-close]");
+  let lastConsultationTrigger = null;
+
+  const setConsultationStatus = (message, type = "") => {
+    if (!consultationStatus) return;
+    consultationStatus.textContent = message;
+    consultationStatus.dataset.state = type;
+  };
+
+  const openConsultationModal = (trigger) => {
+    lastConsultationTrigger = trigger || document.activeElement;
+    consultationModal.classList.add("is-open");
+    consultationModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("consultation-modal-open");
+    setConsultationStatus("");
+
+    window.setTimeout(() => {
+      consultationForm?.querySelector("input, textarea, select")?.focus();
+    }, 80);
+  };
+
+  const closeConsultationModal = () => {
+    consultationModal.classList.remove("is-open");
+    consultationModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("consultation-modal-open");
+    setConsultationStatus("");
+    lastConsultationTrigger?.focus?.();
+  };
+
+  consultationOpeners.forEach((opener) => {
+    opener.addEventListener("click", (event) => {
+      event.preventDefault();
+      openConsultationModal(opener);
+    });
+  });
+
+  consultationClosers.forEach((closer) => {
+    closer.addEventListener("click", closeConsultationModal);
+  });
+
+  consultationModal.addEventListener("click", (event) => {
+    if (!consultationPanel || consultationPanel.contains(event.target)) return;
+    closeConsultationModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && consultationModal.classList.contains("is-open")) {
+      closeConsultationModal();
+    }
+  });
+
+  consultationForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const form = new FormData(consultationForm);
+    const btn = consultationForm.querySelector("button[type=submit]");
+    const originalText = btn ? btn.textContent : "";
+
+    const email = String(form.get("email") || "").trim();
+    const project = String(form.get("project") || "").trim();
+    const budget = String(form.get("budget") || "").trim();
+    const referral = String(form.get("referral") || "").trim();
+
+    const payload = {
+      name: "Consultation Lead",
+      email,
+      company: referral ? `Heard about us: ${referral}` : "",
+      budget,
+      timeline: "",
+      message: [
+        project,
+        budget ? `Estimated budget: ${budget}` : "",
+        referral ? `How they heard about us: ${referral}` : "",
+      ].filter(Boolean).join("\n\n"),
+      project,
+    };
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+    }
+
+    setConsultationStatus("Sending your request...", "loading");
+
+    let ok = false;
+
+    try {
+      await saveLeadToSupabase({
+        ...payload,
+        source: "consultation_modal",
+      });
+      notifyContactByEmail(payload);
+      ok = true;
+    } catch (err) {
+      console.error("Consultation save failed:", err);
+
+      try {
+        const res = await fetch("/api/send-contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        ok = res.ok;
+      } catch {
+        ok = false;
+      }
+    }
+
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+
+    if (ok) {
+      consultationForm.reset();
+      setConsultationStatus("Thank you. We received your request and will reply within 24 hours.", "success");
+      window.setTimeout(closeConsultationModal, 1800);
+      return;
+    }
+
+    setConsultationStatus("Something went wrong. Please email us directly at oviatech.ca@gmail.com", "error");
+  });
+}

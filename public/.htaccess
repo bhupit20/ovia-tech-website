@@ -1,0 +1,36 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteRule ^api/send-lead/?$ api/send-lead.php [L]
+RewriteRule ^api/send-contact/?$ api/send-contact.php [L]
+
+RewriteRule ^website-design-usa/?$ pages/website-design-usa.html [L]
+RewriteRule ^website-design-canada/?$ pages/website-design-canada.html [L]
+RewriteRule ^web-development-new-york/?$ pages/web-development-new-york.html [L]
+
+RewriteRule ^local-seo/?$ pages/resources/local-seo.html [L]
+RewriteRule ^on-page-seo/?$ pages/resources/on-page-seo.html [L]
+RewriteRule ^technical-seo/?$ pages/resources/technical-seo.html [L]
+RewriteRule ^website-redesigns/?$ pages/resources/website-redesigns.html [L]
+RewriteRule ^saas-vs-custom-website/?$ pages/resources/saas-vs-custom-website.html [L]
+RewriteRule ^software-development-tools/?$ pages/resources/software-development-tools.html [L]
+RewriteRule ^website-cost-guide/?$ pages/resources/website-cost-guide.html [L]
+RewriteRule ^best-ai-tools/?$ pages/resources/best-ai-tools.html [L]
+
+RewriteRule ^services/frontend-development/?$ pages/services/frontend-development.html [L]
+RewriteRule ^services/backend-development/?$ pages/services/backend-development.html [L]
+RewriteRule ^services/cms-implementation/?$ pages/services/cms-implementation.html [L]
+RewriteRule ^services/technical-qa/?$ pages/services/technical-qa.html [L]
+RewriteRule ^services/web-design/?$ pages/services/web-design.html [L]
+RewriteRule ^services/design-systems/?$ pages/services/design-systems.html [L]
+RewriteRule ^services/branding/?$ pages/services/branding.html [L]
+RewriteRule ^services/web-development/?$ pages/services/web-development.html [L]
+RewriteRule ^services/ecommerce-development/?$ pages/services/ecommerce-development.html [L]
+RewriteRule ^services/saas-development/?$ pages/services/saas-development.html [L]
+RewriteRule ^services/mobile-app-development/?$ pages/services/mobile-app-development.html [L]
+RewriteRule ^services/custom-software-development/?$ pages/services/custom-software-development.html [L]
+RewriteRule ^services/ui-ux-design/?$ pages/services/ui-ux-design.html [L]
+RewriteRule ^services/seo-services/?$ pages/services/seo-services.html [L]
+RewriteRule ^services/ai-automation-solutions/?$ pages/services/ai-automation-solutions.html [L]
+RewriteRule ^services/api-system-integrations/?$ pages/services/api-system-integrations.html [L]
+RewriteRule ^services/maintenance-support/?$ pages/services/maintenance-support.html [L]

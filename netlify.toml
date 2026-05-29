@@ -10,3 +10,53 @@
   from = "/api/*"
   to   = "/.netlify/functions/:splat"
   status = 200
+
+[[redirects]]
+  from = "/services/web-development"
+  to   = "/pages/services/web-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/ecommerce-development"
+  to   = "/pages/services/ecommerce-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/saas-development"
+  to   = "/pages/services/saas-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/mobile-app-development"
+  to   = "/pages/services/mobile-app-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/custom-software-development"
+  to   = "/pages/services/custom-software-development.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/ui-ux-design"
+  to   = "/pages/services/ui-ux-design.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/seo-services"
+  to   = "/pages/services/seo-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/ai-automation-solutions"
+  to   = "/pages/services/ai-automation-solutions.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/api-system-integrations"
+  to   = "/pages/services/api-system-integrations.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/maintenance-support"
+  to   = "/pages/services/maintenance-support.html"
+  status = 200

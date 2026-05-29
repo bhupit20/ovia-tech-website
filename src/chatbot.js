@@ -1,10 +1,11 @@
 import "./chatbot.css";
+import { saveLeadToSupabase } from "./supabase-leads.js";
 
 /* ============================================================
    CONFIGURATION
    ============================================================ */
 const CFG = {
-  // Netlify Function endpoint (proxied via /api/ redirect in netlify.toml)
+  // Fallback endpoint for hosting environments where database capture fails.
   emailEndpoint: "/api/send-lead",
   adminEmail:    "allen@oviatech.com",
   botName:       "Aria",
@@ -27,17 +28,17 @@ const KB = [
   },
   {
     keys: ["website","web design","landing page","ecommerce","shopify","wordpress","online store"],
-    reply: "Our websites start from **$1,200** and include:\n\n✅ Premium responsive design\n✅ SEO-optimised structure\n✅ Contact forms & CTA setup\n✅ Google Analytics integration\n✅ Mobile-first build\n\nWe've delivered a 5-page professional site in just 7 days! Want a custom quote?",
+    reply: "Our website projects are custom scoped and can include:\n\n✅ Premium responsive design\n✅ SEO-optimised structure\n✅ Contact forms & CTA setup\n✅ Google Analytics integration\n✅ Mobile-first build\n\nWe've delivered a 5-page professional site in just 7 days when scope is clear. Want a custom quote?",
     chips: ["Get a quote","See examples","Learn about pricing"],
   },
   {
     keys: ["app","mobile","ios","android","flutter","react native","smartphone"],
-    reply: "We build high-performance mobile apps using Flutter — one codebase for both iOS and Android.\n\n📱 Apps from **$8,000**\n⏱️ Typical timeline: 4–12 weeks\n\nWe handle everything: UX design, backend APIs, App Store submission, and post-launch support.",
+    reply: "We build high-performance mobile apps using Flutter — one codebase for both iOS and Android.\n\n📱 Custom app planning and development\n⏱️ Typical timeline: 4–12 weeks\n\nWe handle everything: UX design, backend APIs, App Store submission, and post-launch support.",
     chips: ["Get a quote","How long does it take?","Flutter vs React Native"],
   },
   {
     keys: ["saas","software","platform","dashboard","portal","crm","custom system","internal tool"],
-    reply: "We design and develop scalable SaaS products, admin dashboards, client portals, CRM systems, and custom business software.\n\n⚙️ Starting from **$15,000**\n🔐 Secure & scalable architecture\n🚀 From discovery to launch\n\nEvery project starts with a free discovery call.",
+    reply: "We design and develop scalable SaaS products, admin dashboards, client portals, CRM systems, and custom business software.\n\n⚙️ Custom scope based on features and integrations\n🔐 Secure & scalable architecture\n🚀 From discovery to launch\n\nEvery project starts with a free discovery call.",
     chips: ["Get a quote","Tell me about the process"],
   },
   {
@@ -47,12 +48,12 @@ const KB = [
   },
   {
     keys: ["seo","search","google","ranking","traffic","marketing","digital marketing","visibility"],
-    reply: "Our SEO & digital marketing services help US businesses rank on Google and attract qualified leads:\n\n🔍 Technical SEO setup\n📍 Local SEO for US markets\n✍️ Content strategy\n📊 Analytics & monthly reporting\n\nSEO retainers start from **$500/month**.",
+    reply: "Our SEO & digital marketing services help US businesses rank on Google and attract qualified leads:\n\n🔍 Technical SEO setup\n📍 Local SEO for US markets\n✍️ Content strategy\n📊 Analytics & monthly reporting\n\nSEO and growth plans are custom scoped after a free consultation, so the plan matches your market, goals, and budget.",
     chips: ["Get a quote","How long to see results?"],
   },
   {
     keys: ["price","pricing","cost","how much","rate","budget","affordable","cheap","expensive"],
-    reply: "Our pricing is flexible and tailored to each project based on scope, features, and timelines.\n\n💻 Business Websites: starting from **$250**\n📱 Mobile Apps: starting from **$2,000**\n⚙️ SaaS Platforms & Custom Software: starting from **$3,000**\n📈 SEO & Growth Marketing: starting from **$300/month**\n\nEvery project includes a free consultation and customised proposal.\n\nTell us a little about your project and we'll recommend the best solution for your budget.",
+    reply: "Our pricing is custom because every project has different scope, features, content, integrations, timeline, and support needs.\n\nCommon project paths:\n\n💻 Launch Foundation — polished website or first digital system\n📈 Growth Platform — website, SEO, analytics, and conversion support\n⚙️ Scalable Digital System — SaaS, custom software, apps, integrations, or AI automation\n\nEvery project starts with a free consultation and a customised scope recommendation before you commit.",
     chips: ["Get a free quote","Tell me more"],
   },
   {
@@ -77,7 +78,7 @@ const KB = [
   },
   {
     keys: ["contact","email","phone","talk","speak","call","reach","whatsapp","message"],
-    reply: "You can reach us at:\n\n📧 allen@oviatech.com\n💬 WhatsApp available\n\nOr let me collect your details and our team will reach out within **24 hours**!",
+    reply: "You can reach us at:\n\n📧 allen@oviatech.com\n📞 +1 782 446 5923\n\nOr let me collect your details and our team will reach out within **24 hours**!",
     chips: ["Collect my details","Send an email"],
   },
   {
@@ -104,12 +105,74 @@ let msgCount   = 0;
 let lead       = { name: "", email: "", phone: "", project: "" };
 let isOpen     = false;
 let autoOpened = false;
+let popupTimer = null;
+
+const POPUP_MSGS = [
+  "Hi there 👋 Need help with your project?",
+  "Looking for a website, app, or SEO services?",
+  "Tell us about your project — get a free quote.",
+];
+
+/* ============================================================
+   ENGAGEMENT POPUP
+   ============================================================ */
+function showPopup() {
+  if (sessionStorage.getItem("cb-popup-dismissed") || isOpen) return;
+  const popup = document.getElementById("cb-popup");
+  const msg   = document.getElementById("cb-popup-msg");
+  if (!popup || !msg) return;
+  msg.textContent = POPUP_MSGS[Math.floor(Math.random() * POPUP_MSGS.length)];
+  popup.setAttribute("aria-hidden", "false");
+  popup.classList.add("is-visible");
+  playChime();
+  popupTimer = setTimeout(() => dismissPopup(false), 10000);
+}
+
+function dismissPopup(store = true) {
+  clearTimeout(popupTimer);
+  const popup = document.getElementById("cb-popup");
+  if (!popup || !popup.classList.contains("is-visible")) return;
+  popup.classList.remove("is-visible");
+  popup.setAttribute("aria-hidden", "true");
+  if (store) sessionStorage.setItem("cb-popup-dismissed", "1");
+}
+
+function playChime() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o   = ctx.createOscillator();
+    const g   = ctx.createGain();
+    o.connect(g);
+    g.connect(ctx.destination);
+    o.type = "sine";
+    o.frequency.setValueAtTime(880, ctx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(1100, ctx.currentTime + 0.12);
+    g.gain.setValueAtTime(0.0001, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.055, ctx.currentTime + 0.05);
+    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
+    o.start(ctx.currentTime);
+    o.stop(ctx.currentTime + 0.5);
+  } catch (_) {}
+}
 
 /* ============================================================
    BUILD HTML
    ============================================================ */
 function buildWidget() {
   const html = `
+<div class="cb-popup" id="cb-popup" role="status" aria-live="polite" aria-hidden="true">
+  <div class="cb-popup-avatar" aria-hidden="true">A</div>
+  <div class="cb-popup-body">
+    <span class="cb-popup-name">Aria · Ovia Tech</span>
+    <p class="cb-popup-msg" id="cb-popup-msg"></p>
+  </div>
+  <button class="cb-popup-close" id="cb-popup-close" aria-label="Dismiss">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+</div>
+
 <button class="cb-toggle" id="cb-toggle" aria-label="Chat with Ovia Tech" aria-expanded="false">
   <svg class="cb-icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -241,6 +304,24 @@ function handleInput(raw) {
   }
 
   msgCount++;
+  const directAction = text.toLowerCase();
+
+  if (directAction === "try again" && lead.name && lead.email) {
+    state = S.DONE;
+    submitLead();
+    return;
+  }
+
+  if (directAction === "send an email") {
+    mailtoFallback(
+      lead.name || "Website Visitor",
+      lead.email || "",
+      lead.phone || "Not provided",
+      lead.project || "Project details not provided"
+    );
+    botReply("Opening your email app now. Please send the message so the Ovia Tech team receives your details directly.");
+    return;
+  }
 
   // Lead capture state machine
   if (state === S.NAME) {
@@ -356,34 +437,75 @@ function isValidEmail(e) {
 }
 
 /* ============================================================
-   SUBMIT LEAD — posts to Netlify Function → SMTP2GO → admin email
+   SUBMIT LEAD — saves to Supabase first, then falls back to hosting endpoint
    ============================================================ */
 async function submitLead() {
   const { name, email, phone, project } = lead;
 
-  // Confirm message immediately — don't make user wait for network
   botReply(
-    `Thank you, **${name}**! 🎉 Your details are on their way to the Ovia Tech team.\n\nWe'll reach out to **${email}** within 24 hours with a tailored recommendation.\n\nAnything else I can help with?`,
-    { chips: ["Services", "Pricing", "Our process"] }
+    `Thanks, **${name}**. Sending your details to the Ovia Tech team now...`
   );
 
   try {
-    const res = await fetch(CFG.emailEndpoint, {
+    await saveLeadToSupabase({
+      source: "chatbot",
+      name,
+      email,
+      phone,
+      project,
+      message: project,
+    });
+
+    notifyLeadByEmail({ name, email, phone, project });
+
+    botReply(
+      `Thank you, **${name}**! 🎉 Your details were sent to the Ovia Tech team.\n\nWe'll reach out to **${email}** within 24 hours with a tailored recommendation.\n\nAnything else I can help with?`,
+      { chips: ["Services", "Pricing", "Our process"] }
+    );
+  } catch (err) {
+    console.error("Supabase lead save failed:", err);
+
+    try {
+      const res = await fetch(CFG.emailEndpoint, {
       method:  "POST",
       headers: { "Content-Type": "application/json" },
       body:    JSON.stringify({ name, email, phone, project }),
-    });
+      });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      console.error("Lead email failed:", err);
-      // Silent fallback — user already got confirmation message
-      mailtoFallback(name, email, phone, project);
+      if (!res.ok) {
+        const fallbackErr = await res.json().catch(() => ({}));
+        console.error("Lead fallback failed:", fallbackErr);
+        state = S.CHAT;
+        botReply(
+          "I could not send this automatically from the website. Please email us directly at **allen@oviatech.com** and include your project details.",
+          { chips: ["Send an email", "Try again"] }
+        );
+        return;
+      }
+
+      botReply(
+        `Thank you, **${name}**! 🎉 Your details were sent to the Ovia Tech team.\n\nWe'll reach out to **${email}** within 24 hours with a tailored recommendation.\n\nAnything else I can help with?`,
+        { chips: ["Services", "Pricing", "Our process"] }
+      );
+    } catch (fallbackErr) {
+      console.error("Lead send error:", fallbackErr);
+      state = S.CHAT;
+      botReply(
+        "I could not reach the website email service. Please email us directly at **allen@oviatech.com** and include your project details.",
+        { chips: ["Send an email", "Try again"] }
+      );
     }
-  } catch (err) {
-    console.error("Lead send error:", err);
-    mailtoFallback(name, email, phone, project);
   }
+}
+
+function notifyLeadByEmail(payload) {
+  fetch(CFG.emailEndpoint, {
+    method:  "POST",
+    headers: { "Content-Type": "application/json" },
+    body:    JSON.stringify(payload),
+  }).catch((err) => {
+    console.error("Lead email notification failed:", err);
+  });
 }
 
 function mailtoFallback(name, email, phone, project) {
@@ -404,6 +526,7 @@ function mailtoFallback(name, email, phone, project) {
    ============================================================ */
 function openChat() {
   isOpen = true;
+  dismissPopup(false);
   const win    = document.getElementById("cb-window");
   const toggle = document.getElementById("cb-toggle");
   const badge  = document.getElementById("cb-badge");
@@ -479,6 +602,36 @@ function init() {
       }
     }, CFG.autoOpenDelay);
   }
+
+  // Engagement popup — fires once when metrics bar scrolls into view
+  const metricsBar = document.querySelector(".metrics-bar");
+  if (metricsBar) {
+    const popupObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          showPopup();
+          popupObserver.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    popupObserver.observe(metricsBar);
+  }
+
+  // Popup: click body → open chat; click × → dismiss only
+  const popupEl = document.getElementById("cb-popup");
+  const popupClose = document.getElementById("cb-popup-close");
+
+  popupEl.addEventListener("click", (e) => {
+    if (e.target.closest("#cb-popup-close")) return;
+    dismissPopup(true);
+    openChat();
+  });
+
+  popupClose.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dismissPopup(true);
+  });
 }
 
 // Boot
