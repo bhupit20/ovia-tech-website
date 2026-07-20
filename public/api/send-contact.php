@@ -26,6 +26,7 @@ if (!is_array($payload)) {
 
 $name = trim((string)($payload['name'] ?? ''));
 $email = trim((string)($payload['email'] ?? ''));
+$phone = trim((string)($payload['phone'] ?? 'Not provided'));
 $company = trim((string)($payload['company'] ?? 'Not provided'));
 $budget = trim((string)($payload['budget'] ?? 'Not provided'));
 $timeline = trim((string)($payload['timeline'] ?? 'Not provided'));
@@ -49,6 +50,7 @@ $subject = 'New Inquiry from ' . $name . ' - Ovia Tech';
 
 $safeName = esc_html($name);
 $safeEmail = esc_html($email !== '' ? $email : 'Not provided');
+$safePhone = esc_html($phone !== '' ? $phone : 'Not provided');
 $safeCompany = esc_html($company !== '' ? $company : 'Not provided');
 $safeBudget = esc_html($budget !== '' ? $budget : 'Not provided');
 $safeTimeline = esc_html($timeline !== '' ? $timeline : 'Not provided');
@@ -68,6 +70,7 @@ $html = <<<HTML
     <div style="padding:28px 32px;color:#111;">
       <p><strong>Name:</strong> {$safeName}</p>
       <p><strong>Email:</strong> {$safeEmail}</p>
+      <p><strong>Phone:</strong> {$safePhone}</p>
       <p><strong>Company:</strong> {$safeCompany}</p>
       <p><strong>Budget / Type:</strong> {$safeBudget}</p>
       <p><strong>Timeline:</strong> {$safeTimeline}</p>
@@ -82,6 +85,7 @@ HTML;
 $text = "New Contact Form Submission - Ovia Tech\n\n"
     . "Name: {$name}\n"
     . "Email: " . ($email !== '' ? $email : 'Not provided') . "\n"
+    . "Phone: " . ($phone !== '' ? $phone : 'Not provided') . "\n"
     . "Company: " . ($company !== '' ? $company : 'Not provided') . "\n"
     . "Budget / Type: " . ($budget !== '' ? $budget : 'Not provided') . "\n"
     . "Timeline: " . ($timeline !== '' ? $timeline : 'Not provided') . "\n\n"

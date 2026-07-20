@@ -135,6 +135,118 @@ if (tocNav && articleMain) {
 }
 
 /* ============================================================
+   BLOG HUB FILTERS
+   ============================================================ */
+document.querySelectorAll("[data-blog-hub]").forEach((blogHub) => {
+  const searchInput = blogHub.querySelector("[data-blog-search]");
+  const resultsGrid = blogHub.querySelector("[data-blog-results]");
+  const emptyState = blogHub.querySelector("[data-blog-empty]");
+  const cards = [...blogHub.querySelectorAll(".blog-card")];
+  const filterGroups = [...blogHub.querySelectorAll("[data-blog-filter-group]")];
+  const viewButtons = [...blogHub.querySelectorAll("[data-blog-view]")];
+  const filters = { topic: "all", tag: "" };
+
+  const getCardDate = (card) => {
+    const meta = card.querySelector(".blog-card-meta")?.textContent || "";
+    const dateText = meta.split("·")[0]?.trim();
+    const timestamp = Date.parse(dateText);
+    return Number.isNaN(timestamp) ? 0 : timestamp;
+  };
+
+  cards
+    .map((card, index) => ({ card, index, date: getCardDate(card) }))
+    .sort((a, b) => (b.date - a.date) || (a.index - b.index))
+    .forEach(({ card }) => resultsGrid?.append(card));
+
+  const getCardText = (card) => {
+    if (!card.dataset.searchText) {
+      card.dataset.searchText = card.textContent.toLowerCase().replace(/\s+/g, " ");
+    }
+    return card.dataset.searchText;
+  };
+
+  const cardMatchesFilter = (card, filterValue) => {
+    if (!filterValue || filterValue === "all") return true;
+    const text = getCardText(card);
+
+    if (filterValue === "ai") {
+      return text.includes(" ai ") || text.includes("automation") || text.includes("chatgpt") || text.includes("claude") || text.includes("gemini");
+    }
+
+    if (filterValue === "development") {
+      return text.includes("development") || text.includes("software") || text.includes("website") || text.includes("mobile") || text.includes("flutter") || text.includes("react native");
+    }
+
+    if (filterValue === "web design") {
+      return text.includes("web design") || text.includes("website design") || text.includes("redesign") || text.includes("agency");
+    }
+
+    if (filterValue === "buyer") {
+      return text.includes("buyer") || text.includes("choose") || text.includes("guide") || text.includes("questions");
+    }
+
+    return text.includes(filterValue);
+  };
+
+  const updateBlogResults = () => {
+    const query = (searchInput?.value || "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const text = getCardText(card);
+      const matchesSearch = !query || text.includes(query);
+      const matchesTopic = cardMatchesFilter(card, filters.topic);
+      const matchesTag = cardMatchesFilter(card, filters.tag);
+      const isVisible = matchesSearch && matchesTopic && matchesTag;
+
+      card.classList.toggle("is-hidden", !isVisible);
+      if (isVisible) visibleCount += 1;
+    });
+
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+  };
+
+  filterGroups.forEach((group) => {
+    const groupName = group.dataset.blogFilterGroup;
+
+    group.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+
+      const isActive = button.classList.contains("active");
+      group.querySelectorAll("[data-filter]").forEach((filterButton) => filterButton.classList.remove("active"));
+
+      if (groupName === "tag" && isActive) {
+        filters.tag = "";
+      } else {
+        button.classList.add("active");
+        filters[groupName] = button.dataset.filter || "";
+      }
+
+      if (groupName === "topic" && !filters.topic) {
+        filters.topic = "all";
+      }
+
+      updateBlogResults();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener("input", updateBlogResults);
+  }
+
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      viewButtons.forEach((viewButton) => viewButton.classList.remove("active"));
+      button.classList.add("active");
+      resultsGrid?.classList.toggle("is-list-view", button.dataset.blogView === "list");
+    });
+  });
+
+  updateBlogResults();
+});
+
+/* ============================================================
    NAVIGATION
    ============================================================ */
 const header = document.querySelector("[data-header]");
@@ -143,6 +255,14 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const mobileNavQuery = window.matchMedia("(max-width: 980px)");
 
 if (navToggle && nav) {
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+  nav.querySelectorAll(".nav-submenu a[href]").forEach((link) => {
+    const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, "");
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    }
+  });
+
   nav.querySelectorAll(".nav-drop-trigger").forEach((trigger) => {
     trigger.setAttribute("aria-expanded", "false");
 
@@ -443,6 +563,7 @@ document.querySelectorAll("[data-contact-form]").forEach((contactForm) => {
     const payload = {
       name:     form.get("name")     || "",
       email:    form.get("email")    || "",
+      phone:    form.get("phone")    || "",
       company:  form.get("company")  || "",
       budget:   form.get("budget")   || "",
       timeline: form.get("timeline") || "",

@@ -68,7 +68,7 @@ const KB = [
   },
   {
     keys: ["location","where","based","usa","new york","united states","country","remote"],
-    reply: "Ovia Tech is headquartered in **East Meadow, New York, USA** 🇺🇸\n\nWe work with clients across the USA, Canada, UK, Australia, and worldwide via remote delivery — with USA-standard quality guaranteed.",
+    reply: "Ovia Tech is based in **Halifax, Nova Scotia, Canada**.\n\nWe work with clients across Canada, the USA, UK, Australia, and worldwide via remote delivery, with clear communication and premium delivery standards.",
     chips: ["Get a quote","Learn about us"],
   },
   {

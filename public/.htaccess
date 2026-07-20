@@ -1,6 +1,32 @@
-Options -MultiViews
+Options -Indexes -MultiViews
 RewriteEngine On
 
+# Canonical clean URL redirects
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# Specific directory collisions resolved first
+RewriteRule ^pages/blog/?$ pages/blog.html [L]
+RewriteRule ^pages/services/?$ pages/services.html [L]
+
+# Redirects for consolidated duplicate blog posts (old URL -> canonical resource page)
+# Must precede the generic clean-URL rule below, since the old .html files still exist on disk.
+RewriteRule ^pages/blog/page-1-google-2026/?$ /on-page-seo [R=301,L]
+RewriteRule ^pages/blog/local-seo-small-business-usa-2026/?$ /local-seo [R=301,L]
+RewriteRule ^pages/blog/website-loading-speed-fix/?$ /technical-seo [R=301,L]
+RewriteRule ^pages/blog/ai-website-builder-vs-web-agency-2026/?$ /website-redesigns [R=301,L]
+RewriteRule ^pages/blog/saas-vs-custom-website/?$ /saas-vs-custom-website [R=301,L]
+RewriteRule ^pages/blog/choose-software-development-agency-2026/?$ /software-development-tools [R=301,L]
+RewriteRule ^pages/blog/website-cost-small-business-2026/?$ /website-cost-guide [R=301,L]
+RewriteRule ^pages/blog/best-ai-tools-small-business-usa-2026/?$ /best-ai-tools [R=301,L]
+
+# Clean URLs: Rewrite extensionless URLs to their .html files dynamically
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
 RewriteRule ^api/send-lead/?$ api/send-lead.php [L]
 RewriteRule ^api/send-contact/?$ api/send-contact.php [L]
 
@@ -16,6 +42,27 @@ RewriteRule ^saas-vs-custom-website/?$ pages/resources/saas-vs-custom-website.ht
 RewriteRule ^software-development-tools/?$ pages/resources/software-development-tools.html [L]
 RewriteRule ^website-cost-guide/?$ pages/resources/website-cost-guide.html [L]
 RewriteRule ^best-ai-tools/?$ pages/resources/best-ai-tools.html [L]
+RewriteRule ^automate-business-workflows-ai/?$ pages/resources/automate-business-workflows-ai.html [L]
+RewriteRule ^custom-software-development-cost-startups/?$ pages/resources/custom-software-development-cost-startups.html [L]
+RewriteRule ^best-web-design-agencies-atlantic-canada/?$ pages/resources/best-web-design-agencies-atlantic-canada.html [L]
+
+RewriteRule ^technologies/?$ pages/technologies.html [L]
+RewriteRule ^technologies/contentful/?$ pages/technologies/contentful.html [L]
+RewriteRule ^technologies/sanity-cms/?$ pages/technologies/sanity-cms.html [L]
+RewriteRule ^technologies/builder-io/?$ pages/technologies/builder-io.html [L]
+RewriteRule ^technologies/storyblok/?$ pages/technologies/storyblok.html [L]
+RewriteRule ^technologies/datocms/?$ pages/technologies/datocms.html [L]
+RewriteRule ^technologies/hubspot-cms/?$ pages/technologies/hubspot-cms.html [L]
+RewriteRule ^technologies/webflow/?$ pages/technologies/webflow.html [L]
+RewriteRule ^technologies/wordpress/?$ pages/technologies/wordpress.html [L]
+RewriteRule ^technologies/gatsby/?$ pages/technologies/gatsby.html [L]
+RewriteRule ^technologies/nextjs/?$ pages/technologies/nextjs.html [L]
+RewriteRule ^technologies/vercel/?$ pages/technologies/vercel.html [L]
+RewriteRule ^technologies/netlify/?$ pages/technologies/netlify.html [L]
+RewriteRule ^technologies/php/?$ pages/technologies/php.html [L]
+RewriteRule ^technologies/shopify/?$ pages/technologies/shopify.html [L]
+RewriteRule ^technologies/nodejs/?$ pages/technologies/nodejs.html [L]
+RewriteRule ^technologies/reactjs/?$ pages/technologies/reactjs.html [L]
 
 RewriteRule ^services/frontend-development/?$ pages/services/frontend-development.html [L]
 RewriteRule ^services/backend-development/?$ pages/services/backend-development.html [L]
@@ -34,3 +81,12 @@ RewriteRule ^services/seo-services/?$ pages/services/seo-services.html [L]
 RewriteRule ^services/ai-automation-solutions/?$ pages/services/ai-automation-solutions.html [L]
 RewriteRule ^services/api-system-integrations/?$ pages/services/api-system-integrations.html [L]
 RewriteRule ^services/maintenance-support/?$ pages/services/maintenance-support.html [L]
+
+RewriteRule ^industries/?$ pages/industries.html [L]
+RewriteRule ^industries/healthcare-medspas/?$ pages/industries/healthcare-medspas.html [L]
+RewriteRule ^industries/real-estate/?$ pages/industries/real-estate.html [L]
+RewriteRule ^industries/law-firms/?$ pages/industries/law-firms.html [L]
+RewriteRule ^industries/restaurants-hospitality/?$ pages/industries/restaurants-hospitality.html [L]
+
+RewriteRule ^web-development-toronto/?$ pages/web-development-toronto.html [L]
+RewriteRule ^web-development-vancouver/?$ pages/web-development-vancouver.html [L]

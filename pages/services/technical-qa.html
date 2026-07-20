@@ -25,10 +25,88 @@
  <meta name="twitter:description" content="Technical QA services for websites, web apps, SaaS products, forms, responsiveness, speed, browser testing, integrations, and pre-launch quality checks." />
  <link rel="preconnect" href="https://fonts.googleapis.com" />
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
  <link rel="stylesheet" href="/src/styles.css" />
- <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Technical QA Services","serviceType":"Technical QA","provider":{"@type":"Organization","name":"Ovia Tech","url":"https://oviatech.com/"},"areaServed":["United States","Canada","Worldwide"],"url":"https://oviatech.com/services/technical-qa","description":"Technical QA services for websites, web apps, SaaS products, forms, responsiveness, speed, browser testing, integrations, and pre-launch quality checks."}</script>
- </head>
+
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://oviatech.com/services/technical-qa",
+      "url": "https://oviatech.com/services/technical-qa",
+      "name": "Technical QA Services for Websites, Apps & SaaS | Ovia Tech",
+      "isPartOf": {
+        "@id": "https://oviatech.com/#website"
+      },
+      "description": "Technical QA services for websites, web apps, SaaS products, forms, responsiveness, speed, browser testing, integrations, and pre-launch quality checks."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://oviatech.com/services/technical-qa#service",
+      "name": "Technical QA Services",
+      "serviceType": "Technical QA",
+      "description": "Technical QA services for websites, web apps, SaaS products, forms, responsiveness, speed, browser testing, integrations, and pre-launch quality checks.",
+      "provider": {
+        "@id": "https://oviatech.com/#organization"
+      },
+      "areaServed": [
+        "United States",
+        "Canada",
+        "Worldwide"
+      ],
+      "url": "https://oviatech.com/services/technical-qa"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://oviatech.com/#organization",
+      "name": "Ovia Tech",
+      "url": "https://oviatech.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oviatech.com/assets/favicon.png"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/ovia-tech/",
+        "https://www.instagram.com/oviatech.ca",
+        "https://www.facebook.com/oviatech"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://oviatech.com/services/technical-qa#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you QA a site built by another developer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We can review existing websites or apps and provide a prioritized issue list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you test lead forms and email delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Lead capture and notification flow testing is one of the highest-value QA checks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can QA be part of a redesign project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. QA is recommended before launch and after major design, SEO, or integration changes."
+          }
+        }
+      ]
+    }
+  ]
+}
+ </script>
+</head>
  <body>
  <header class="site-header" data-header>
  <a class="brand" href="/" aria-label="Ovia Tech home"><img class="brand-logo brand-logo-white" src="/assets/Ovia-new-logo-white.svg" alt="Ovia Tech" /><img class="brand-logo brand-logo-black" src="/assets/Ovia-new-logo-blk.svg" alt="Ovia Tech" /></a>
@@ -38,16 +116,19 @@
  <nav class="nav" data-nav>
  <a class="active" href="/">Home</a>
  <a href="/pages/about">About</a>
- <div class="nav-dropdown"><a class="nav-drop-trigger active" href="/pages/services">Services</a><div class="nav-submenu"><a href="/services/web-development">Website Design &amp; Development</a><a href="/services/ecommerce-development">eCommerce Development</a><a href="/services/saas-development">SaaS Development</a><a href="/services/mobile-app-development">Mobile App Development</a><a href="/services/custom-software-development">Custom Software Development</a><a href="/services/ui-ux-design">UI/UX Design</a><a href="/services/seo-services">SEO Services</a><a href="/services/ai-automation-solutions">AI Automation Solutions</a><a href="/services/api-system-integrations">API &amp; System Integrations</a><a href="/services/maintenance-support">Maintenance &amp; Support</a></div></div>
- <a href="/pages/work">Portfolio</a>
- <a href="/pages/industries">Industries</a>
+ <div class="nav-dropdown"><a class="nav-drop-trigger active" href="/pages/services">Services</a><div class="nav-submenu nav-mega-menu nav-mega-services"><div class="nav-mega-links"><a href="/services/web-development" data-icon="WD" data-desc="SEO-ready websites.">Website Design &amp; Development</a><a href="/services/ecommerce-development" data-icon="EC" data-desc="Ecommerce storefronts.">eCommerce Development</a><a href="/services/saas-development" data-icon="SA" data-desc="SaaS MVPs and portals.">SaaS Development</a><a href="/services/mobile-app-development" data-icon="AP" data-desc="iOS and Android apps.">Mobile App Development</a><a href="/services/custom-software-development" data-icon="CS" data-desc="Custom business tools.">Custom Software Development</a><a href="/services/ui-ux-design" data-icon="UX" data-desc="UX and product design.">UI/UX Design</a><a href="/services/seo-services" data-icon="SE" data-desc="SEO growth systems.">SEO Services</a><a href="/services/ai-automation-solutions" data-icon="AI" data-desc="AI workflow automation.">AI Automation Solutions</a><a href="/services/api-system-integrations" data-icon="API" data-desc="API integrations.">API &amp; System Integrations</a><a href="/services/maintenance-support" data-icon="MS" data-desc="Maintenance and QA.">Maintenance &amp; Support</a></div><a class="nav-mega-feature" href="/pages/contact"><span class="nav-mega-feature-media">OV</span><strong>Not sure what you need?</strong><small>Tell us what you are building. We will recommend the right service path and next step.</small><b>Book a strategy call</b></a></div></div>
+ <div class="nav-dropdown"><a class="nav-drop-trigger" href="/technologies">Technologies</a><div class="nav-submenu nav-mega-menu nav-mega-tech"><div class="nav-mega-links"><a href="/technologies" data-icon="ALL" data-desc="Full stack overview.">Technologies Overview</a><a href="/technologies/contentful" data-icon="CT" data-desc="Headless CMS.">Contentful</a><a href="/technologies/sanity-cms" data-icon="SN" data-desc="Structured content.">Sanity CMS</a><a href="/technologies/builder-io" data-icon="BI" data-desc="Visual page building.">Builder.io</a><a href="/technologies/storyblok" data-icon="SB" data-desc="Composable CMS.">Storyblok</a><a href="/technologies/datocms" data-icon="DC" data-desc="Editorial CMS.">DatoCMS</a><a href="/technologies/hubspot-cms" data-icon="HS" data-desc="CRM websites.">HubSpot CMS</a><a href="/technologies/webflow" data-icon="WF" data-desc="Marketing sites.">Webflow</a><a href="/technologies/wordpress" data-icon="WP" data-desc="WordPress builds.">WordPress</a><a href="/technologies/gatsby" data-icon="GS" data-desc="Static frontends.">Gatsby</a><a href="/technologies/nextjs" data-icon="NX" data-desc="React apps.">Next.js</a><a href="/technologies/vercel" data-icon="VC" data-desc="Frontend hosting.">Vercel</a><a href="/technologies/netlify" data-icon="NF" data-desc="Static hosting.">Netlify</a><a href="/technologies/php" data-icon="PHP" data-desc="Backend logic.">PHP</a><a href="/technologies/shopify" data-icon="SP" data-desc="Shopify commerce.">Shopify</a><a href="/technologies/nodejs" data-icon="ND" data-desc="Server APIs.">Node.js</a><a href="/technologies/reactjs" data-icon="RE" data-desc="Interactive UI.">React.js</a></div><a class="nav-mega-feature" href="/technologies"><span class="nav-mega-feature-media">STACK</span><strong>Modern stack guidance</strong><small>Choose the right CMS, framework, hosting, and integration strategy for your website or product.</small><b>Explore technologies</b></a></div></div>
+ <a href="/pages/work">Case Studies</a>
+ <div class="nav-dropdown"><a class="nav-drop-trigger" href="/pages/industries">Industries</a><div class="nav-submenu nav-mega-menu nav-mega-industries"><div class="nav-mega-links"><a href="/industries/healthcare-medspas" data-icon="HM" data-desc="Patient growth & booking.">Healthcare &amp; Med Spas</a><a href="/industries/real-estate" data-icon="RE" data-desc="Listings & lead gen.">Real Estate</a><a href="/industries/law-firms" data-icon="LF" data-desc="Client intake & trust.">Law Firms</a><a href="/industries/restaurants-hospitality" data-icon="RH" data-desc="Reservations & orders.">Restaurants &amp; Hospitality</a><a href="/industries/independent-schools" data-icon="IS" data-desc="Enrollment & admissions.">Independent Schools</a></div><a class="nav-mega-feature" href="/pages/industries"><span class="nav-mega-feature-media">ALL</span><strong>Explore all industries</strong><small>See every sector we specialize in, or tell us about yours.</small><b>View industries overview</b></a></div></div>
+
  <a href="/pages/pricing">Pricing</a>
  <a href="/pages/blog">Blog</a>
+ <a href="/pages/contact">Contact Us</a>
  <a class="nav-cta" href="#consultation-modal" data-consultation-open>Book Consultation</a>
  </nav>
  </header>
  <main>
- <section class="page-hero service-landing-hero"><div class="container reveal"><p class="eyebrow">Technical QA</p><h1>Technical QA that catches website, app, and SaaS issues before customers do.</h1><p>Ovia Tech provides technical QA support for launches, redesigns, SaaS products, forms, integrations, responsive layouts, browser behavior, and conversion-critical user journeys.</p><div class="button-row" style="margin-top:36px;"><a class="button primary" href="/pages/contact">Book Consultation</a><a class="button secondary" href="/pages/work">View Work</a></div><p class="cta-microcopy">Clear scope, practical roadmap, and conversion-focused direction.</p></div></section>
+ <section class="page-hero service-landing-hero"><div class="container reveal"><p class="eyebrow">Technical QA</p><h1>Technical QA that catches website, app, and SaaS issues before customers do.</h1><p>Ovia Tech provides technical QA support for launches, redesigns, SaaS products, forms, integrations, responsive layouts, browser behavior, and conversion-critical user journeys.</p><div class="button-row" style="margin-top:36px;"><a class="button primary" href="/pages/contact">Book Consultation</a><a class="button secondary" href="/pages/work">View Case Studies</a></div><p class="cta-microcopy">Clear scope, practical roadmap, and conversion-focused direction.</p></div></section>
  <section class="section section-light"><div class="container service-page-intro"><div class="reveal"><p class="eyebrow">Overview</p><h2>Small technical issues can quietly damage trust and conversions.</h2></div><div class="reveal delay-1"><p>A broken form, layout shift, slow mobile page, misfiring integration, or confusing state can cost leads without making a lot of noise. Technical QA helps catch those problems before launch and during growth.</p><p>We test the practical parts of the user journey: pages, buttons, forms, mobile layouts, browser behavior, chatbot flow, contact paths, tracking, integrations, and performance-sensitive sections.</p></div></div></section>
  <section class="section dark-band"><div class="container section-heading reveal"><p class="eyebrow">Capabilities</p><h2>What this service can include.</h2></div><div class="container service-feature-grid"><article class="service-feature-card reveal"><span>01</span><h3>Responsive testing</h3><p>Review desktop, tablet, and mobile layouts for broken spacing, overflow, and readability.</p></article><article class="service-feature-card reveal delay-1"><span>02</span><h3>Form and lead testing</h3><p>Validate contact forms, chatbot flows, lead storage, notifications, and thank-you states.</p></article><article class="service-feature-card reveal delay-2"><span>03</span><h3>Browser checks</h3><p>Test key journeys across common browsers and device conditions.</p></article><article class="service-feature-card reveal"><span>04</span><h3>Performance review</h3><p>Identify heavy assets, layout shifts, render issues, and speed bottlenecks.</p></article><article class="service-feature-card reveal delay-1"><span>05</span><h3>Integration QA</h3><p>Check API handoffs, email notifications, CRM flows, analytics tags, and third-party scripts.</p></article><article class="service-feature-card reveal delay-2"><span>06</span><h3>Launch checklist</h3><p>A practical pre-launch review covering SEO basics, UX paths, content, and technical risk.</p></article></div></section>
  <section class="section section-light"><div class="container split"><div class="reveal"><p class="eyebrow">Business value</p><h2>Built for clarity, trust, and measurable next steps.</h2><p style="margin-top:20px;">Every page, system, or interface should support a clear business outcome: better trust, smoother use, stronger search visibility, or more qualified leads.</p></div><div class="proof-list reveal delay-1"><div><b>Protect leads</b><span>Make sure forms, chatbot capture, and email notifications are working correctly.</span></div><div><b>Improve trust</b><span>Avoid visual or functional bugs that make the business look less credible.</span></div><div><b>Reduce rework</b><span>Find launch issues before they become urgent customer-facing problems.</span></div><div><b>Support growth</b><span>QA gives paid campaigns, SEO launches, and redesigns a cleaner foundation.</span></div></div></div></section>
@@ -73,6 +154,13 @@
         <a href="/services/ecommerce-development">eCommerce Development</a>
         <a href="/services/mobile-app-development">Mobile App Development</a>
         <a href="/services/custom-software-development">Custom Software Development</a>
+        <span class="footer-col-title footer-subtitle">Resources</span>
+        <a href="/pages/blog">Blog</a>
+        <a href="/website-cost-guide">Website Cost Guide</a>
+        <a href="/best-ai-tools">Best AI Tools</a>
+        <a href="/automate-business-workflows-ai">AI Workflow Automation</a>
+        <a href="/custom-software-development-cost-startups">Startup Software Cost</a>
+        <a href="/best-web-design-agencies-atlantic-canada">Atlantic Canada Web Design</a>
       </div>
       <div class="footer-col">
         <span class="footer-col-title">Design</span>
@@ -83,6 +171,8 @@
         <a href="/website-design-usa">Website Design USA</a>
         <a href="/website-design-canada">Website Design Canada</a>
         <a href="/web-development-new-york">Web Development New York</a>
+        <a href="/web-development-toronto">Web Development Toronto</a>
+        <a href="/web-development-vancouver">Web Development Vancouver</a>
         <span class="footer-col-title footer-subtitle">SEO</span>
         <a href="/services/seo-services">SEO Services</a>
         <a href="/local-seo">Local SEO</a>
@@ -93,39 +183,56 @@
         <span class="footer-col-title">Solutions</span>
         <a href="/services/saas-development">SaaS Development</a>
         <a href="/services/ai-automation-solutions">AI Automation Solutions</a>
-        <a href="/services/maintenance-support">Maintenance & Support</a>
+        <a href="/services/maintenance-support">Maintenance &amp; Support</a>
         <a href="/website-redesigns">Website Redesigns</a>
         <a href="/saas-vs-custom-website">SaaS vs Custom Website</a>
         <a href="/software-development-tools">Software Development Tools</a>
-        <span class="footer-col-title footer-subtitle">Industries</span>
-        <a href="/pages/industries">Industries Overview</a>
-        <a href="/services/saas-development">SaaS</a>
-        <a href="/services/ai-automation-solutions">AI/ML</a>
-        <a href="/pages/work">Case Studies</a>
-      </div>
-      <div class="footer-col">
-        <span class="footer-col-title">Technologies</span>
+        <span class="footer-col-title footer-subtitle">Service Stacks</span>
         <a href="/services/web-development">HTML/CSS/JavaScript</a>
         <a href="/services/frontend-development">Frontend Frameworks</a>
         <a href="/services/backend-development">Backend APIs</a>
         <a href="/services/cms-implementation">CMS Platforms</a>
-        <a href="/services/ecommerce-development">Shopify & eCommerce</a>
-        <a href="/services/mobile-app-development">Flutter & Mobile Apps</a>
-        <a href="/services/api-system-integrations">Supabase & Integrations</a>
-        <a href="/services/maintenance-support">Hosting & Maintenance</a>
-        <span class="footer-col-title footer-subtitle">Resources</span>
-        <a href="/pages/blog">Blog</a>
-        <a href="/website-cost-guide">Website Cost Guide</a>
-        <a href="/best-ai-tools">Best AI Tools</a>
+        <a href="/services/ecommerce-development">Shopify &amp; eCommerce</a>
+        <a href="/services/mobile-app-development">Flutter &amp; Mobile Apps</a>
+        <a href="/services/api-system-integrations">Supabase &amp; Integrations</a>
+        <a href="/services/maintenance-support">Hosting &amp; Maintenance</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Technologies</span>
+        <a href="/technologies">Technologies Overview</a>
+        <a href="/technologies/contentful">Contentful</a>
+        <a href="/technologies/sanity-cms">Sanity CMS</a>
+        <a href="/technologies/builder-io">Builder.io</a>
+        <a href="/technologies/storyblok">Storyblok</a>
+        <a href="/technologies/datocms">DatoCMS</a>
+        <a href="/technologies/hubspot-cms">HubSpot CMS</a>
+        <a href="/technologies/webflow">Webflow</a>
+        <a href="/technologies/wordpress">WordPress</a>
+        <a href="/technologies/gatsby">Gatsby</a>
+        <a href="/technologies/nextjs">Next.js</a>
+        <a href="/technologies/vercel">Vercel</a>
+        <a href="/technologies/netlify">Netlify</a>
+        <a href="/technologies/php">PHP</a>
+        <a href="/technologies/shopify">Shopify</a>
+        <a href="/technologies/nodejs">Node.js</a>
+        <a href="/technologies/reactjs">React.js</a>
       </div>
       <div class="footer-col footer-col-contact">
         <span class="footer-col-title">Company</span>
         <a href="/pages/about">About</a>
         <a href="/pages/services">All Services</a>
-        <a href="/pages/work">Portfolio</a>
+        <a href="/pages/work">Case Studies</a>
         <a href="/pages/pricing">Pricing</a>
-        <a href="/pages/contact">Contact</a>
+        <a href="/pages/contact">Contact Us</a>
         <a href="/pages/author/allen">Author Profile</a>
+        <a href="/pages/privacy-policy">Privacy Policy</a>
+        <span class="footer-col-title footer-subtitle">Industries</span>
+        <a href="/pages/industries">Industries Overview</a>
+        <a href="/industries/healthcare-medspas">Healthcare &amp; Med Spas</a>
+        <a href="/industries/real-estate">Real Estate</a>
+        <a href="/industries/law-firms">Law Firms</a>
+        <a href="/industries/restaurants-hospitality">Restaurants &amp; Hospitality</a>
+        <a href="/industries/independent-schools">Independent Schools</a>
       </div>
     </nav>
   </div>

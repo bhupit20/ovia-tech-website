@@ -60,3 +60,242 @@
   from = "/services/maintenance-support"
   to   = "/pages/services/maintenance-support.html"
   status = 200
+
+# --- Previously missing redirects (these pages were live in dev via the
+# Vite middleware but had no route in production, so they 404'd) ---
+
+[[redirects]]
+  from = "/website-design-usa"
+  to   = "/pages/website-design-usa.html"
+  status = 200
+
+[[redirects]]
+  from = "/website-design-canada"
+  to   = "/pages/website-design-canada.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-development-new-york"
+  to   = "/pages/web-development-new-york.html"
+  status = 200
+
+[[redirects]]
+  from = "/local-seo"
+  to   = "/pages/resources/local-seo.html"
+  status = 200
+
+[[redirects]]
+  from = "/on-page-seo"
+  to   = "/pages/resources/on-page-seo.html"
+  status = 200
+
+[[redirects]]
+  from = "/technical-seo"
+  to   = "/pages/resources/technical-seo.html"
+  status = 200
+
+[[redirects]]
+  from = "/website-redesigns"
+  to   = "/pages/resources/website-redesigns.html"
+  status = 200
+
+[[redirects]]
+  from = "/saas-vs-custom-website"
+  to   = "/pages/resources/saas-vs-custom-website.html"
+  status = 200
+
+[[redirects]]
+  from = "/software-development-tools"
+  to   = "/pages/resources/software-development-tools.html"
+  status = 200
+
+[[redirects]]
+  from = "/website-cost-guide"
+  to   = "/pages/resources/website-cost-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/best-ai-tools"
+  to   = "/pages/resources/best-ai-tools.html"
+  status = 200
+
+[[redirects]]
+  from = "/automate-business-workflows-ai"
+  to   = "/pages/resources/automate-business-workflows-ai.html"
+  status = 200
+
+[[redirects]]
+  from = "/custom-software-development-cost-startups"
+  to   = "/pages/resources/custom-software-development-cost-startups.html"
+  status = 200
+
+[[redirects]]
+  from = "/best-web-design-agencies-atlantic-canada"
+  to   = "/pages/resources/best-web-design-agencies-atlantic-canada.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies"
+  to   = "/pages/technologies.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/contentful"
+  to   = "/pages/technologies/contentful.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/sanity-cms"
+  to   = "/pages/technologies/sanity-cms.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/builder-io"
+  to   = "/pages/technologies/builder-io.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/storyblok"
+  to   = "/pages/technologies/storyblok.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/datocms"
+  to   = "/pages/technologies/datocms.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/hubspot-cms"
+  to   = "/pages/technologies/hubspot-cms.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/webflow"
+  to   = "/pages/technologies/webflow.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/wordpress"
+  to   = "/pages/technologies/wordpress.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/gatsby"
+  to   = "/pages/technologies/gatsby.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/nextjs"
+  to   = "/pages/technologies/nextjs.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/vercel"
+  to   = "/pages/technologies/vercel.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/netlify"
+  to   = "/pages/technologies/netlify.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/php"
+  to   = "/pages/technologies/php.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/shopify"
+  to   = "/pages/technologies/shopify.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/nodejs"
+  to   = "/pages/technologies/nodejs.html"
+  status = 200
+
+[[redirects]]
+  from = "/technologies/reactjs"
+  to   = "/pages/technologies/reactjs.html"
+  status = 200
+
+# --- New industry landing pages ---
+
+[[redirects]]
+  from = "/industries/healthcare-medspas"
+  to   = "/pages/industries/healthcare-medspas.html"
+  status = 200
+
+[[redirects]]
+  from = "/industries/real-estate"
+  to   = "/pages/industries/real-estate.html"
+  status = 200
+
+[[redirects]]
+  from = "/industries/law-firms"
+  to   = "/pages/industries/law-firms.html"
+  status = 200
+
+[[redirects]]
+  from = "/industries/restaurants-hospitality"
+  to   = "/pages/industries/restaurants-hospitality.html"
+  status = 200
+
+[[redirects]]
+  from = "/industries/independent-schools"
+  to   = "/pages/industries/independent-schools.html"
+  status = 200
+
+# --- New city landing pages ---
+
+[[redirects]]
+  from = "/web-development-toronto"
+  to   = "/pages/web-development-toronto.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-development-vancouver"
+  to   = "/pages/web-development-vancouver.html"
+  status = 200
+
+# --- Redirects for consolidated duplicate blog posts (old URL -> canonical resource page) ---
+
+[[redirects]]
+  from = "/pages/blog/page-1-google-2026"
+  to   = "/on-page-seo"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/local-seo-small-business-usa-2026"
+  to   = "/local-seo"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/website-loading-speed-fix"
+  to   = "/technical-seo"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/ai-website-builder-vs-web-agency-2026"
+  to   = "/website-redesigns"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/saas-vs-custom-website"
+  to   = "/saas-vs-custom-website"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/choose-software-development-agency-2026"
+  to   = "/software-development-tools"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/website-cost-small-business-2026"
+  to   = "/website-cost-guide"
+  status = 301
+
+[[redirects]]
+  from = "/pages/blog/best-ai-tools-small-business-usa-2026"
+  to   = "/best-ai-tools"
+  status = 301
