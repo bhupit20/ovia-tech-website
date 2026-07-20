@@ -87,6 +87,7 @@ RewriteRule ^industries/healthcare-medspas/?$ pages/industries/healthcare-medspa
 RewriteRule ^industries/real-estate/?$ pages/industries/real-estate.html [L]
 RewriteRule ^industries/law-firms/?$ pages/industries/law-firms.html [L]
 RewriteRule ^industries/restaurants-hospitality/?$ pages/industries/restaurants-hospitality.html [L]
+RewriteRule ^industries/independent-schools/?$ pages/industries/independent-schools.html [L]
 
 RewriteRule ^web-development-toronto/?$ pages/web-development-toronto.html [L]
 RewriteRule ^web-development-vancouver/?$ pages/web-development-vancouver.html [L]
