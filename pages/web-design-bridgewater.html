@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-273R90DZJC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+
+    gtag("config", "G-273R90DZJC");
+  </script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="icon" type="image/png" href="/assets/favicon.png" />
+ <meta name="description" content="Web design for Bridgewater, Nova Scotia businesses. Ovia Tech builds fast, professional, mobile-friendly websites for South Shore businesses that want to stand out locally." />
+ <title>Web Design Bridgewater | Ovia Tech</title>
+ <link rel="canonical" href="https://oviatech.com/web-design-bridgewater" />
+ <meta property="og:url" content="https://oviatech.com/web-design-bridgewater" />
+ <meta property="og:title" content="Web Design Bridgewater | Ovia Tech" />
+ <meta property="og:description" content="Custom web design for Bridgewater and South Shore Nova Scotia businesses, built to look professional and generate local inquiries." />
+ <meta property="og:type" content="website" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Web Design Bridgewater | Ovia Tech" />
+ <meta name="twitter:description" content="Custom web design for Bridgewater and South Shore Nova Scotia businesses, built to look professional and generate local inquiries." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="/src/styles.css" />
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://oviatech.com/web-design-bridgewater",
+      "url": "https://oviatech.com/web-design-bridgewater",
+      "name": "Web Design Bridgewater",
+      "isPartOf": {
+        "@id": "https://oviatech.com/#website"
+      },
+      "description": "Web design services for Bridgewater, Nova Scotia businesses on the South Shore that need a professional, mobile-friendly website built for local customers."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://oviatech.com/web-design-bridgewater#service",
+      "name": "Web Design Bridgewater",
+      "serviceType": "Web Design Bridgewater",
+      "description": "Web design services for Bridgewater, Nova Scotia businesses on the South Shore that need a professional, mobile-friendly website built for local customers.",
+      "provider": {
+        "@id": "https://oviatech.com/#organization"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Bridgewater"
+      },
+      "url": "https://oviatech.com/web-design-bridgewater"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://oviatech.com/#organization",
+      "name": "Ovia Tech",
+      "url": "https://oviatech.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://oviatech.com/assets/favicon.png"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/ovia-tech/",
+        "https://www.instagram.com/oviatech.ca",
+        "https://www.facebook.com/oviatech"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://oviatech.com/web-design-bridgewater#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you design websites for small businesses in Bridgewater?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We work with independent and small businesses across Bridgewater and the South Shore, from single-location shops to multi-service operations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Our current website was built years ago. Can you rebuild it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We can rebuild an older Bridgewater business website with a modern layout, updated content, and mobile-friendly design while keeping the domain and reputation intact."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you only work with Bridgewater, or the wider South Shore too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support Bridgewater along with nearby South Shore communities such as Lunenburg, Mahone Bay, and Liverpool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a typical Bridgewater web design project include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A typical project includes homepage and service page design, mobile optimization, contact and quote forms, basic SEO setup, and launch support."
+          }
+        }
+      ]
+    }
+  ]
+}
+ </script>
+ <style>
+  /* ============================================================
+     CAMPAIGN LANDING PAGE — scoped "lp-" components.
+     Shared visual system across location/service landing pages.
+     ============================================================ */
+  .lp-hero{position:relative;overflow:hidden;min-height:94vh;display:flex;align-items:center;background:#070a16;}
+  .lp-hero-bg{position:absolute;inset:0;z-index:0;background:
+      radial-gradient(1100px 620px at 82% -6%, rgba(80,120,255,.35), transparent 60%),
+      radial-gradient(900px 560px at 8% 108%, rgba(140,109,255,.28), transparent 62%),
+      radial-gradient(700px 460px at 96% 92%, rgba(235,70,4,.22), transparent 60%),
+      linear-gradient(150deg,#070a16 0%,#0d1530 55%,#141232 100%);
+  }
+  .lp-hero-bg svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5;}
+  .lp-hero-grain{position:absolute;inset:0;z-index:1;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);background-size:26px 26px;mix-blend-mode:overlay;}
+  .lp-hero-inner{position:relative;z-index:2;width:min(1180px,calc(100% - 40px));margin:0 auto;padding:172px 0 130px;}
+  .lp-hero-content{max-width:610px;}
+  .lp-hero-badge{display:inline-flex;align-items:center;gap:9px;padding:9px 18px 9px 12px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:12px;font-weight:900;letter-spacing:.4px;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:24px;}
+  .lp-hero-badge i{display:block;width:8px;height:8px;border-radius:99px;background:var(--lime);box-shadow:0 0 12px rgba(169,255,104,.85);flex-shrink:0;}
+  .lp-hero h1{max-width:610px;margin:0;font-size:clamp(38px,5.2vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1.4px;color:var(--white);}
+  .lp-hero h1 em{font-style:normal;color:transparent;background:linear-gradient(118deg,#fb923c,var(--blue) 50%,var(--violet));background-clip:text;-webkit-background-clip:text;}
+  .lp-hero-sub{margin:22px 0 0;max-width:510px;font-size:clamp(16px,1.6vw,18.5px);line-height:1.7;color:rgba(232,242,255,.82);}
+  .lp-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+  .lp-hero-microline{margin:16px 0 0;font-size:13px;font-weight:700;color:rgba(232,242,255,.55);}
+
+  .lp-float{position:absolute;z-index:3;padding:14px 18px;border-radius:16px;background:rgba(13,22,44,.6);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);box-shadow:0 22px 50px rgba(0,0,0,.4);animation:lp-float 6.5s ease-in-out infinite;}
+  .lp-float-row{display:flex;align-items:center;gap:11px;}
+  .lp-float-ico{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#eb4604,var(--violet));flex-shrink:0;font-size:16px;}
+  .lp-float-ico svg{width:17px;height:17px;color:#fff;}
+  .lp-float b{display:block;font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:2px;}
+  .lp-float span{display:block;font-size:13.5px;font-weight:800;color:#fff;white-space:nowrap;}
+  .lp-float p{margin:2px 0 0;font-size:12.5px;font-weight:600;line-height:1.5;color:rgba(232,242,255,.72);max-width:190px;}
+  .lp-float a{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:800;color:var(--blue);white-space:nowrap;}
+
+  .lp-float-a{top:15%;left:47%;width:210px;}
+  .lp-float-a .lp-float-ico{background:linear-gradient(140deg,var(--violet),#eb4604);}
+  .lp-float-b{top:17%;right:5%;width:180px;}
+  .lp-float-b b{margin-bottom:8px;}
+  .lp-float-b svg{display:block;width:100%;height:34px;}
+  .lp-float-b .lp-float-value{display:flex;align-items:baseline;gap:6px;margin-top:8px;}
+  .lp-float-b .lp-float-value strong{font-size:17px;font-weight:900;color:var(--lime);}
+  .lp-float-b .lp-float-value em{font-style:normal;font-size:11px;font-weight:700;color:rgba(232,242,255,.5);}
+  .lp-float-c{top:41%;right:22%;width:220px;}
+  .lp-float-c .lp-float-row{align-items:flex-start;}
+  .lp-float-c .lp-float-time{margin-left:auto;font-size:10.5px;font-weight:700;color:rgba(232,242,255,.45);white-space:nowrap;}
+  .lp-float-d{top:54%;right:4%;width:210px;}
+  .lp-float-d .lp-float-ico{flex-direction:column;background:#fff;color:#141b33;line-height:1;}
+  .lp-float-d .lp-float-ico strong{font-size:15px;font-weight:900;}
+  .lp-float-d .lp-float-ico small{font-size:8px;font-weight:800;text-transform:uppercase;}
+  .lp-float-e{bottom:12%;right:3%;width:230px;}
+  .lp-float-e .lp-float-row{align-items:center;gap:16px;}
+  .lp-float-donut{position:relative;width:56px;height:56px;border-radius:99px;flex-shrink:0;background:conic-gradient(var(--blue) 0 78%, rgba(255,255,255,.12) 78% 100%);display:grid;place-items:center;}
+  .lp-float-donut::before{content:"";position:absolute;inset:6px;border-radius:99px;background:#0d1530;}
+  .lp-float-donut span{position:relative;font-size:13px;font-weight:900;color:#fff;}
+  .lp-float-stats{display:flex;flex-direction:column;gap:3px;font-size:11.5px;font-weight:700;color:rgba(232,242,255,.65);}
+  .lp-float-stats b{color:#fff;}
+
+  @keyframes lp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @media (max-width:1280px){ .lp-float-c, .lp-float-d{display:none;} }
+  @media (max-width:980px){ .lp-float{display:none;} }
+
+  .lp-scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;}
+  .lp-scroll-cue i{display:block;width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,.7), transparent);animation:lp-scrollline 2s ease-in-out infinite;}
+  @keyframes lp-scrollline{0%{opacity:0;transform:scaleY(.3)}50%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(.3)}}
+
+  /* STORY */
+  .lp-story{padding:130px 0 90px;}
+  .lp-story-lede{max-width:760px;margin:0 auto 64px;text-align:center;}
+  .lp-story-lede h2{font-size:clamp(28px,3.8vw,44px);}
+  .lp-story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .lp-story-item{padding-top:22px;border-top:1px solid var(--line);}
+  .lp-story-item .lp-num{display:block;margin-bottom:14px;font-size:50px;font-weight:900;line-height:1;color:transparent;background:linear-gradient(120deg,var(--blue),var(--violet));background-clip:text;-webkit-background-clip:text;}
+  .lp-story-item h3{margin-bottom:10px;}
+  @media (max-width:860px){ .lp-story-grid{grid-template-columns:1fr;gap:40px;} }
+
+  /* AUDIENCE TABS */
+  .lp-persona{padding:110px 0;}
+  .lp-persona-head{max-width:660px;margin:0 auto 44px;text-align:center;}
+  .lp-persona-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px;}
+  .lp-persona-tab{padding:12px 22px;border-radius:99px;border:1px solid var(--light-border);background:var(--light-card);color:var(--light-muted);font-weight:800;font-size:13.5px;cursor:pointer;transition:all 220ms cubic-bezier(.4,0,.2,1);font-family:inherit;}
+  .lp-persona-tab:hover{transform:translateY(-2px);}
+  .lp-persona-tab.active{background:linear-gradient(140deg,#eb4604,var(--blue) 60%);color:#fff;border-color:transparent;box-shadow:0 12px 30px rgba(235,70,4,.32);}
+  .lp-persona-panels{max-width:840px;margin:0 auto;}
+  .lp-persona-panel{display:none;background:var(--light-card);border:1px solid var(--light-border);border-radius:var(--radius-lg);padding:44px;box-shadow:var(--light-shadow);}
+  .lp-persona-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  .lp-persona-panel .lp-pain{padding-right:24px;border-right:1px solid var(--light-border);}
+  .lp-persona-panel .lp-win{padding-left:4px;}
+  .lp-persona-tag{display:inline-block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);margin-bottom:12px;}
+  .lp-persona-panel h4{margin:0 0 10px;font-size:19px;font-weight:800;color:var(--light-text);}
+  .lp-persona-panel p{margin:0;color:var(--light-muted);font-size:15px;line-height:1.7;}
+  @media (max-width:720px){
+    .lp-persona-panel{padding:30px;}
+    .lp-persona-panel.active{grid-template-columns:1fr;gap:24px;}
+    .lp-persona-panel .lp-pain{padding-right:0;border-right:none;padding-bottom:20px;border-bottom:1px solid var(--light-border);}
+  }
+
+  /* COMPARE SLIDER */
+  .lp-compare{padding:120px 0;}
+  .lp-compare-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .lp-compare-frame{position:relative;max-width:920px;margin:0 auto;aspect-ratio:16/10;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--line);user-select:none;}
+  .lp-compare-pane{position:absolute;inset:0;padding:40px;display:flex;flex-direction:column;justify-content:center;}
+  .lp-compare-old{background:#e7e5df;}
+  .lp-compare-old .lp-mock-h{font-family:Georgia,'Times New Roman',serif;font-size:26px;font-weight:700;color:#3a3a36;margin:0 0 14px;}
+  .lp-compare-old .lp-mock-line{height:9px;border-radius:2px;background:#c7c4ba;margin-bottom:9px;}
+  .lp-compare-old .lp-mock-line:nth-child(3){width:92%;}
+  .lp-compare-old .lp-mock-line:nth-child(4){width:78%;}
+  .lp-compare-old .lp-mock-line:nth-child(5){width:85%;}
+  .lp-compare-old .lp-mock-btn{margin-top:18px;display:inline-block;width:fit-content;padding:9px 18px;background:#9c9a90;color:#fff;font-size:12px;font-weight:700;border-radius:3px;}
+  .lp-compare-old .lp-mock-tag{position:absolute;top:18px;left:18px;font-size:11px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:#78766c;background:rgba(255,255,255,.6);padding:6px 12px;border-radius:99px;}
+  .lp-compare-new{background:linear-gradient(150deg,#0d1530,#141b33 60%,#1a1440);color:#fff;clip-path:inset(0 0 0 50%);transition:clip-path 60ms linear;}
+  .lp-compare-new .lp-mock-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:11px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;margin-bottom:16px;width:fit-content;}
+  .lp-compare-new .lp-mock-badge i{width:7px;height:7px;border-radius:99px;background:var(--lime);}
+  .lp-compare-new h4{margin:0 0 12px;font-size:24px;font-weight:900;line-height:1.15;letter-spacing:-.5px;}
+  .lp-compare-new .lp-mock-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+  .lp-compare-new .lp-mock-chips span{padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);font-size:11px;font-weight:700;}
+  .lp-compare-new .lp-mock-tag{position:absolute;top:18px;right:18px;font-size:11px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);padding:6px 12px;border-radius:99px;}
+  .lp-compare-handle{position:absolute;top:0;bottom:0;left:50%;width:0;z-index:5;pointer-events:none;}
+  .lp-compare-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px;background:#fff;box-shadow:0 0 20px rgba(255,255,255,.85);}
+  .lp-compare-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:99px;background:#fff;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.35);color:#141b33;font-size:13px;font-weight:900;letter-spacing:1px;}
+  .lp-compare-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:6;}
+  .lp-compare-caption{max-width:920px;margin:20px auto 0;text-align:center;font-size:13px;color:var(--muted);}
+
+  /* JOURNEY */
+  .lp-journey{padding:110px 0;}
+  .lp-journey-head{max-width:660px;margin:0 auto 56px;text-align:center;}
+  .lp-journey-track{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .lp-journey-track::before{content:"";position:absolute;top:19px;left:4%;right:4%;height:2px;background:var(--light-border);}
+  .lp-journey-step{position:relative;text-align:center;padding:0 6px;}
+  .lp-journey-dot{position:relative;z-index:2;width:40px;height:40px;margin:0 auto 18px;border-radius:99px;background:var(--light-card);border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;font-weight:900;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  .lp-journey-step h4{margin:0 0 8px;font-size:14.5px;font-weight:800;color:var(--light-text);}
+  .lp-journey-step p{margin:0;font-size:12.5px;color:var(--light-muted);line-height:1.55;}
+  @media (max-width:860px){
+    .lp-journey-track{display:flex;overflow-x:auto;gap:0;padding-bottom:14px;scroll-snap-type:x proximity;}
+    .lp-journey-track::before{left:60px;right:60px;}
+    .lp-journey-step{flex:0 0 190px;scroll-snap-align:start;}
+  }
+
+  /* PROOF */
+  .lp-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .lp-proof-item{padding:48px 20px;text-align:center;border-right:1px solid var(--line);}
+  .lp-proof-item:last-child{border-right:none;}
+  .lp-proof-item strong{display:block;font-size:clamp(32px,3.6vw,44px);font-weight:900;color:transparent;background:linear-gradient(120deg,#fb923c,var(--blue));background-clip:text;-webkit-background-clip:text;}
+  .lp-proof-item span{display:block;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;}
+  @media (max-width:720px){
+    .lp-proof-grid{grid-template-columns:repeat(2,1fr);}
+    .lp-proof-item:nth-child(2n){border-right:none;}
+    .lp-proof-item:nth-child(-n+2){border-bottom:1px solid var(--line);}
+  }
+
+  /* MARQUEE */
+  .lp-marquee{padding:110px 0;overflow:hidden;}
+  .lp-marquee-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .lp-marquee-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .lp-marquee-track{display:flex;gap:24px;width:max-content;animation:lp-marquee 42s linear infinite;}
+  .lp-marquee-wrap:hover .lp-marquee-track{animation-play-state:paused;}
+  @keyframes lp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .lp-quote-card{flex:0 0 380px;background:var(--light-card);border:1px solid var(--light-border);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--light-shadow);}
+  .lp-quote-card .stars{color:var(--blue);letter-spacing:2px;font-size:13px;}
+  .lp-quote-card blockquote{margin:14px 0 0;color:var(--light-text);font-size:15px;line-height:1.65;font-weight:500;}
+  .lp-quote-card figcaption{margin-top:16px;font-size:13px;}
+  .lp-quote-card figcaption b{display:block;color:var(--light-text);}
+  .lp-quote-card figcaption span{color:var(--light-muted);}
+
+  /* TRUST STRIP */
+  .lp-trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:36px 44px;padding:54px 0;border-top:1px solid var(--line);}
+  .lp-trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:800;color:rgba(255,255,255,.82);}
+  .lp-trust-item svg{width:19px;height:19px;color:var(--blue);flex-shrink:0;}
+
+  /* FAQ CHAT */
+  .lp-faqchat{padding:110px 0;}
+  .lp-faqchat-head{max-width:640px;margin:0 auto 50px;text-align:center;}
+  .lp-faqchat-thread{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:6px;}
+  .lp-faqchat-item{margin-bottom:14px;}
+  .lp-faqchat-q{display:inline-flex;align-items:center;gap:10px;max-width:85%;padding:15px 20px;border-radius:18px 18px 4px 18px;background:var(--light-card);border:1px solid var(--light-border);font-weight:800;font-size:14.5px;color:var(--light-text);cursor:pointer;box-shadow:var(--light-shadow);font-family:inherit;text-align:left;}
+  .lp-faqchat-q::after{content:"+";flex-shrink:0;font-size:18px;font-weight:900;color:var(--blue);transition:transform 220ms;}
+  .lp-faqchat-item.is-open .lp-faqchat-q::after{transform:rotate(45deg);}
+  .lp-faqchat-a{max-width:85%;margin:10px 0 0 auto;padding:16px 20px;border-radius:18px 18px 18px 4px;background:linear-gradient(140deg,#eb4604,var(--blue));color:#fff;font-weight:500;font-size:14px;line-height:1.65;display:none;}
+  .lp-faqchat-item.is-open .lp-faqchat-a{display:block;}
+
+  /* FINAL CTA */
+  .lp-final{padding:130px 0;}
+  .lp-final-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:start;}
+  .lp-final-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+  .lp-final-tags span{padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted);}
+  .lp-final-checks{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .lp-final-checks li{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;color:rgba(232,242,255,.85);}
+  .lp-final-checks svg{width:18px;height:18px;color:var(--lime);flex-shrink:0;}
+  .lp-final-form-card{position:relative;background:var(--panel-strong);border:1px solid var(--line);border-radius:var(--radius-lg);padding:38px;box-shadow:var(--shadow-lg);}
+  .lp-final-form-card::before{content:"";position:absolute;inset:-1px;border-radius:var(--radius-lg);padding:1px;background:linear-gradient(140deg,rgba(235,70,4,.55),rgba(140,109,255,.4),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+  .lp-final-form-card label{display:block;margin-bottom:16px;font-size:13px;font-weight:800;color:rgba(232,242,255,.7);}
+  .lp-final-form-card input,
+  .lp-final-form-card select,
+  .lp-final-form-card textarea{width:100%;margin-top:8px;padding:13px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:600;}
+  .lp-final-form-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eb4604' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px;}
+  .lp-final-form-card select option{background:#0d1530;color:#fff;}
+  .lp-final-form-card select:invalid{color:rgba(232,242,255,.35);}
+  .lp-final-form-card textarea{min-height:96px;resize:vertical;}
+  .lp-final-form-card input::placeholder,
+  .lp-final-form-card textarea::placeholder{color:rgba(232,242,255,.35);}
+  .lp-final-form-card .button{width:100%;margin-top:6px;}
+  .lp-form-title{margin:0 0 10px;font-size:24px;}
+  .lp-form-intro{margin:0 0 28px;font-size:14.5px;line-height:1.6;color:rgba(232,242,255,.72);}
+  .lp-final-form-card .req{color:var(--blue);margin-left:3px;}
+  .lp-field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:520px){ .lp-field-row{grid-template-columns:1fr;gap:0;} }
+  @media (max-width:900px){ .lp-final-grid{grid-template-columns:1fr;} }
+
+ </style>
+</head>
+ <body>
+ <header class="site-header" data-header><a class="brand" href="/" aria-label="Ovia Tech home"><img class="brand-logo brand-logo-white" src="/assets/Ovia-new-logo-white.svg" alt="Ovia Tech" /><img class="brand-logo brand-logo-black" src="/assets/Ovia-new-logo-blk.svg" alt="Ovia Tech" /></a><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button><nav class="nav" data-nav><a href="/">Home</a><a href="/pages/about">About</a><div class="nav-dropdown"><a class="nav-drop-trigger" href="/pages/services">Services</a><div class="nav-submenu nav-mega-menu nav-mega-services"><div class="nav-mega-links"><a href="/services/web-development" data-icon="WD" data-desc="SEO-ready websites.">Website Design &amp; Development</a><a href="/services/ecommerce-development" data-icon="EC" data-desc="Ecommerce storefronts.">eCommerce Development</a><a href="/services/saas-development" data-icon="SA" data-desc="SaaS MVPs and portals.">SaaS Development</a><a href="/services/mobile-app-development" data-icon="AP" data-desc="iOS and Android apps.">Mobile App Development</a><a href="/services/custom-software-development" data-icon="CS" data-desc="Custom business tools.">Custom Software Development</a><a href="/services/ui-ux-design" data-icon="UX" data-desc="UX and product design.">UI/UX Design</a><a href="/services/seo-services" data-icon="SE" data-desc="SEO growth systems.">SEO Services</a><a href="/services/ai-automation-solutions" data-icon="AI" data-desc="AI workflow automation.">AI Automation Solutions</a><a href="/services/api-system-integrations" data-icon="API" data-desc="API integrations.">API &amp; System Integrations</a><a href="/services/maintenance-support" data-icon="MS" data-desc="Maintenance and QA.">Maintenance &amp; Support</a></div><a class="nav-mega-feature" href="/pages/contact"><span class="nav-mega-feature-media">OV</span><strong>Not sure what you need?</strong><small>Tell us what you are building. We will recommend the right service path and next step.</small><b>Book a strategy call</b></a></div></div><div class="nav-dropdown"><a class="nav-drop-trigger" href="/technologies">Technologies</a><div class="nav-submenu nav-mega-menu nav-mega-tech"><div class="nav-mega-links"><a href="/technologies" data-icon="ALL" data-desc="Full stack overview.">Technologies Overview</a><a href="/technologies/contentful" data-icon="CT" data-desc="Headless CMS.">Contentful</a><a href="/technologies/sanity-cms" data-icon="SN" data-desc="Structured content.">Sanity CMS</a><a href="/technologies/builder-io" data-icon="BI" data-desc="Visual page building.">Builder.io</a><a href="/technologies/storyblok" data-icon="SB" data-desc="Composable CMS.">Storyblok</a><a href="/technologies/datocms" data-icon="DC" data-desc="Editorial CMS.">DatoCMS</a><a href="/technologies/hubspot-cms" data-icon="HS" data-desc="CRM websites.">HubSpot CMS</a><a href="/technologies/webflow" data-icon="WF" data-desc="Marketing sites.">Webflow</a><a href="/technologies/wordpress" data-icon="WP" data-desc="WordPress builds.">WordPress</a><a href="/technologies/gatsby" data-icon="GS" data-desc="Static frontends.">Gatsby</a><a href="/technologies/nextjs" data-icon="NX" data-desc="React apps.">Next.js</a><a href="/technologies/vercel" data-icon="VC" data-desc="Frontend hosting.">Vercel</a><a href="/technologies/netlify" data-icon="NF" data-desc="Static hosting.">Netlify</a><a href="/technologies/php" data-icon="PHP" data-desc="Backend logic.">PHP</a><a href="/technologies/shopify" data-icon="SP" data-desc="Shopify commerce.">Shopify</a><a href="/technologies/nodejs" data-icon="ND" data-desc="Server APIs.">Node.js</a><a href="/technologies/reactjs" data-icon="RE" data-desc="Interactive UI.">React.js</a></div><a class="nav-mega-feature" href="/technologies"><span class="nav-mega-feature-media">STACK</span><strong>Modern stack guidance</strong><small>Choose the right CMS, framework, hosting, and integration strategy for your website or product.</small><b>Explore technologies</b></a></div></div><a href="/pages/work">Case Studies</a><div class="nav-dropdown"><a class="nav-drop-trigger" href="/pages/industries">Industries</a><div class="nav-submenu nav-mega-menu nav-mega-industries"><div class="nav-mega-links"><a href="/industries/healthcare-medspas" data-icon="HM" data-desc="Patient growth & booking.">Healthcare &amp; Med Spas</a><a href="/industries/real-estate" data-icon="RE" data-desc="Listings & lead gen.">Real Estate</a><a href="/industries/law-firms" data-icon="LF" data-desc="Client intake & trust.">Law Firms</a><a href="/industries/restaurants-hospitality" data-icon="RH" data-desc="Reservations & orders.">Restaurants &amp; Hospitality</a><a href="/industries/independent-schools" data-icon="IS" data-desc="Enrollment & admissions.">Independent Schools</a></div><a class="nav-mega-feature" href="/pages/industries"><span class="nav-mega-feature-media">ALL</span><strong>Explore all industries</strong><small>See every sector we specialize in, or tell us about yours.</small><b>View industries overview</b></a></div></div>
+<a href="/pages/pricing">Pricing</a><a href="/pages/blog">Blog</a><a href="/pages/contact">Contact Us</a><a class="nav-cta" href="#consultation-modal" data-consultation-open>Book Consultation</a></nav></header>
+ <main>
+<section class="lp-hero">
+  <div class="lp-hero-bg" aria-hidden="true"><svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M-50 620 C 150 560, 300 680, 500 600 C 700 520, 850 640, 1250 560" stroke="rgba(93,138,255,.45)" stroke-width="1.5" fill="none"/>
+  <path d="M-50 680 C 180 610, 330 730, 540 660 C 740 590, 900 700, 1250 620" stroke="rgba(140,109,255,.35)" stroke-width="1.5" fill="none"/>
+  <path d="M-50 740 C 200 670, 360 780, 580 710 C 780 650, 950 760, 1250 690" stroke="rgba(235,70,4,.3)" stroke-width="1.5" fill="none"/>
+  <path d="M-50 120 C 180 60, 340 170, 560 100 C 760 40, 920 150, 1250 80" stroke="rgba(93,138,255,.3)" stroke-width="1.5" fill="none"/>
+  <path d="M-50 60 C 200 10, 380 100, 600 40 C 800 -10, 960 90, 1250 30" stroke="rgba(140,109,255,.22)" stroke-width="1.5" fill="none"/>
+  <circle cx="960" cy="150" r="2.5" fill="rgba(169,255,104,.9)"/>
+  <circle cx="220" cy="640" r="2.5" fill="rgba(169,255,104,.7)"/>
+  <circle cx="760" cy="600" r="2" fill="rgba(255,255,255,.6)"/>
+</svg></div>
+  <div class="lp-hero-grain" aria-hidden="true"></div>
+  <div class="lp-float lp-float-a" aria-hidden="true" style="animation-delay:0s;">
+    <div class="lp-float-row">
+      <span class="lp-float-ico"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="12" rx="4" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="12" r="1.2" fill="currentColor"/><circle cx="15" cy="12" r="1.2" fill="currentColor"/><path d="M12 3v3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+      <div><b>Website Helper</b><span>Hi! How can I help?</span></div>
+    </div>
+  </div>
+  <div class="lp-float lp-float-b" aria-hidden="true" style="animation-delay:1.1s;">
+    <b>Quote Requests</b>
+    <svg viewBox="0 0 140 34" fill="none"><path d="M2 26 18 21 34 24 50 14 66 18 82 9 98 13 114 5 130 8" stroke="var(--blue)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="lp-float-value"><strong>&uarr; 38%</strong><em>since launch</em></div>
+  </div>
+  <div class="lp-float lp-float-c" aria-hidden="true" style="animation-delay:2.1s;">
+    <div class="lp-float-row">
+      <span class="lp-float-ico"><svg viewBox="0 0 24 24" fill="none"><path d="M6 8a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z" stroke="currentColor" stroke-width="1.8"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.8"/></svg></span>
+      <b>New Inquiry</b>
+      <span class="lp-float-time">5m ago</span>
+    </div>
+    <p>“Do you have availability this week?”</p>
+  </div>
+  <div class="lp-float lp-float-d" aria-hidden="true" style="animation-delay:3.1s;">
+    <div class="lp-float-row">
+      <span class="lp-float-ico"><strong>5.0</strong><small>★★★★★</small></span>
+      <div><b>Customer Rating</b><span>South Shore small businesses</span></div>
+    </div>
+    <a href="/pages/contact">Book Consultation →</a>
+  </div>
+  <div class="lp-float lp-float-e" aria-hidden="true" style="animation-delay:4.2s;">
+    <b>Site Health</b>
+    <div class="lp-float-row">
+      <span class="lp-float-donut"><span>94%</span></span>
+      <div class="lp-float-stats"><span>Mobile Score&nbsp; <b>94/100</b></span><span>Pages Live&nbsp; <b>12</b></span></div>
+    </div>
+    <a href="/pages/contact">View Details →</a>
+  </div>
+  <div class="lp-hero-inner">
+    <div class="lp-hero-content reveal">
+      <span class="lp-hero-badge"><i></i>Web Design Bridgewater</span>
+      <h1>A website that makes Bridgewater customers <em>trust you on sight.</em></h1>
+      <p class="lp-hero-sub">Ovia Tech builds professional, mobile-friendly websites for Bridgewater and South Shore Nova Scotia businesses, sized to fit the business, not an oversized template that's hard to maintain.</p>
+      <div class="lp-hero-ctas">
+        <a class="button primary" href="/pages/contact">Book Your Free Design Consultation</a>
+        <a class="button secondary" href="/services/web-design">See What's Included</a>
+      </div>
+      <p class="lp-hero-microline">Free 20-minute scope call. No obligation. Reply within 24 hours.</p>
+    </div>
+  </div>
+  <div class="lp-scroll-cue"><span>Scroll</span><i></i></div>
+</section>
+<section class="lp-story">
+  <div class="container lp-story-lede reveal">
+    <p class="eyebrow">First impressions in a small market</p>
+    <h2>In a close-knit town, your website is often the only impression before someone calls.</h2>
+  </div>
+  <div class="container lp-story-grid">
+    <div class="lp-story-item reveal"><span class="lp-num">01</span><h3>The quiet no</h3><p>A visitor lands on a slow, cluttered site, isn't convinced, and calls a competitor instead of you.</p></div>
+    <div class="lp-story-item reveal delay-1"><span class="lp-num">02</span><h3>The word-of-mouth gap</h3><p>Your reputation travels fast around Bridgewater, but your website still doesn't reflect it.</p></div>
+    <div class="lp-story-item reveal delay-2"><span class="lp-num">03</span><h3>The DIY plateau</h3><p>A free builder site got you started, but it's starting to look like it, next to competitors who've upgraded.</p></div>
+  </div>
+</section>
+<section class="lp-persona section-light">
+  <div class="container lp-persona-head reveal">
+    <p class="eyebrow">Sized to your business, not a template</p>
+    <h2>The right site looks different depending on what you run.</h2>
+  </div>
+  <div class="container">
+    <div class="lp-persona-tabs" data-persona-tabs role="tablist" aria-label="Choose your focus">
+      <button class="lp-persona-tab active" type="button" data-persona="trades" role="tab" aria-selected="true">Trades & Contractors</button>
+      <button class="lp-persona-tab" type="button" data-persona="retail" role="tab" aria-selected="false">Retail & Local Shops</button>
+      <button class="lp-persona-tab" type="button" data-persona="personal" role="tab" aria-selected="false">Personal Services</button>
+      <button class="lp-persona-tab" type="button" data-persona="new" role="tab" aria-selected="false">New Businesses</button>
+    </div>
+    <div class="lp-persona-panels reveal delay-1">
+      <div class="lp-persona-panel active" data-persona-panel="trades">
+        <div class="lp-pain"><span class="lp-persona-tag">The pain</span><h4>Customers can't tell if you're available.</h4><p>No clear service area, no easy way to request a quote, so calls go to whoever answers first.</p></div>
+        <div class="lp-win"><span class="lp-persona-tag">What changes</span><h4>A simple site built for quote requests.</h4><p>Clear services, service area, and a one-step quote form that turns browsers into booked jobs.</p></div>
+      </div>
+      <div class="lp-persona-panel" data-persona-panel="retail">
+        <div class="lp-pain"><span class="lp-persona-tag">The pain</span><h4>Shoppers can't find hours or products online.</h4><p>No clear product info, hours, or location, so shoppers go to a store that's easier to check first.</p></div>
+        <div class="lp-win"><span class="lp-persona-tag">What changes</span><h4>A site that answers the basics instantly.</h4><p>Clear hours, location, product highlights, and photos so shoppers choose you before they even walk in.</p></div>
+      </div>
+      <div class="lp-persona-panel" data-persona-panel="personal">
+        <div class="lp-pain"><span class="lp-persona-tag">The pain</span><h4>Booking still means a phone call.</h4><p>Salons, studios, and practitioners lose bookings to competitors with an easy online option.</p></div>
+        <div class="lp-win"><span class="lp-persona-tag">What changes</span><h4>A site built for easy booking.</h4><p>Clear service menus, pricing, and a straightforward way to request an appointment online.</p></div>
+      </div>
+      <div class="lp-persona-panel" data-persona-panel="new">
+        <div class="lp-pain"><span class="lp-persona-tag">The pain</span><h4>No website yet means invisible online.</h4><p>A great local reputation doesn't help if people can't find you on Google before they visit.</p></div>
+        <div class="lp-win"><span class="lp-persona-tag">What changes</span><h4>A professional first website, built to grow.</h4><p>A clean, credible launch site that gives your new business real footing in local search.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="lp-compare">
+  <div class="container lp-compare-head reveal">
+    <p class="eyebrow">Same business. A website that finally matches it.</p>
+    <h2>Drag the line. See the difference a modern site makes.</h2>
+  </div>
+  <div class="container">
+    <div class="lp-compare-frame reveal delay-1" data-compare>
+      <div class="lp-compare-pane lp-compare-old">
+        <span class="lp-mock-tag">Before</span>
+        <p class="lp-mock-h">Welcome to Our Store</p>
+        <div class="lp-mock-line" style="width:55%"></div>
+        <div class="lp-mock-line" style="width:100%"></div>
+        <div class="lp-mock-line" style="width:88%"></div>
+        <div class="lp-mock-line" style="width:70%"></div>
+        <span class="lp-mock-btn">Contact Us</span>
+      </div>
+      <div class="lp-compare-pane lp-compare-new" data-compare-new>
+        <span class="lp-mock-tag">After</span>
+        <span class="lp-mock-badge"><i></i>Now Ranking &amp; Booking</span>
+        <h4>A website your Bridgewater customers enjoy using.</h4>
+        <div class="lp-mock-chips">
+          <span>Mobile-Friendly</span>
+          <span>Easy Contact</span>
+          <span>Photo Gallery</span>
+          <span>Simple Updates</span>
+        </div>
+      </div>
+      <div class="lp-compare-handle" data-compare-handle><span class="lp-compare-grip">&hArr;</span></div>
+      <input class="lp-compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after website" data-compare-range />
+    </div>
+    <p class="lp-compare-caption">Illustrative comparison. Your actual redesign is scoped around your business's real content and brand.</p>
+  </div>
+</section>
+<section class="lp-journey section-light" id="bridgewater-design-journey">
+  <div class="container lp-journey-head reveal">
+    <p class="eyebrow">A simple path from first call to launch</p>
+    <h2>No jargon, no confusing packages, just a clear process.</h2>
+  </div>
+  <div class="container">
+    <div class="lp-journey-track reveal delay-1">
+      <div class="lp-journey-step"><div class="lp-journey-dot">1</div><h4>Conversation</h4><p>We learn about your business, customers, and what your current website is missing.</p></div>
+      <div class="lp-journey-step"><div class="lp-journey-dot">2</div><h4>Design</h4><p>We design your homepage and key pages around your services and brand.</p></div>
+      <div class="lp-journey-step"><div class="lp-journey-dot">3</div><h4>Build</h4><p>We build the full site, add your content, and test it across devices.</p></div>
+      <div class="lp-journey-step"><div class="lp-journey-dot">4</div><h4>Launch</h4><p>We launch your site and stay available for support and small updates.</p></div>
+    </div>
+  </div>
+</section>
+<div class="container lp-proof-grid">
+  <div class="lp-proof-item reveal"><strong>2&ndash;4 wks</strong><span>Typical Launch Timeline</span></div>
+  <div class="lp-proof-item reveal delay-1"><strong>60%+</strong><span>Of Visits Are Mobile</span></div>
+  <div class="lp-proof-item reveal delay-2"><strong>Local</strong><span>South Shore Owned Support</span></div>
+  <div class="lp-proof-item reveal delay-3"><strong>Flat</strong><span>Transparent Pricing</span></div>
+</div>
+<section class="lp-marquee section-light">
+  <div class="container lp-marquee-head reveal">
+    <p class="eyebrow">What South Shore owners say</p>
+    <h2>Real words, once the new site is live.</h2>
+  </div>
+  <div class="lp-marquee-wrap">
+    <div class="lp-marquee-track">
+      <figure class="lp-quote-card"><span class="stars">★★★★★</span><blockquote>"Our new site finally looks as good as the work we do. We've had several customers mention finding us on Google."</blockquote><figcaption><b>Owner</b><span>Bridgewater Contracting Business</span></figcaption></figure>
+      <figure class="lp-quote-card"><span class="stars">★★★★★</span><blockquote>"Simple process, no confusing tech talk. They explained everything clearly."</blockquote><figcaption><b>Owner</b><span>South Shore Retail Shop</span></figcaption></figure>
+      <figure class="lp-quote-card"><span class="stars">★★★★★</span><blockquote>"Booking requests come in through the site now instead of just phone calls."</blockquote><figcaption><b>Owner</b><span>Bridgewater Personal Services Studio</span></figcaption></figure>
+      <figure class="lp-quote-card"><span class="stars">★★★★★</span><blockquote>"They kept things straightforward and delivered exactly what we agreed on."</blockquote><figcaption><b>Owner</b><span>South Shore Trades Company</span></figcaption></figure>
+      <!-- duplicate set for seamless marquee loop -->
+      <figure class="lp-quote-card" aria-hidden="true"><span class="stars">★★★★★</span><blockquote>"Our new site finally looks as good as the work we do. We've had several customers mention finding us on Google."</blockquote><figcaption><b>Owner</b><span>Bridgewater Contracting Business</span></figcaption></figure>
+      <figure class="lp-quote-card" aria-hidden="true"><span class="stars">★★★★★</span><blockquote>"Simple process, no confusing tech talk. They explained everything clearly."</blockquote><figcaption><b>Owner</b><span>South Shore Retail Shop</span></figcaption></figure>
+      <figure class="lp-quote-card" aria-hidden="true"><span class="stars">★★★★★</span><blockquote>"Booking requests come in through the site now instead of just phone calls."</blockquote><figcaption><b>Owner</b><span>Bridgewater Personal Services Studio</span></figcaption></figure>
+      <figure class="lp-quote-card" aria-hidden="true"><span class="stars">★★★★★</span><blockquote>"They kept things straightforward and delivered exactly what we agreed on."</blockquote><figcaption><b>Owner</b><span>South Shore Trades Company</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+<div class="container lp-trust-row reveal">
+  <span class="lp-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.4-2.9 8.4-7 10-4.1-1.6-7-5.6-7-10V6l7-3z" stroke="currentColor"/><path d="M9 12l2 2 4-5" stroke="currentColor"/></svg>Founder-reviewed strategy</span>
+  <span class="lp-trust-item"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="11" width="16" height="9" rx="2" stroke="currentColor"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor"/></svg>Security-conscious builds</span>
+  <span class="lp-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor"/></svg>Transparent, flat-rate scope</span>
+  <span class="lp-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 1 1 2.34 5.66" stroke="currentColor"/><path d="M4 19v-6h6M12 8v5l3 2" stroke="currentColor"/></svg>Ongoing support, not a handoff</span>
+</div>
+<section class="lp-faqchat section-light">
+  <div class="container lp-faqchat-head reveal">
+    <p class="eyebrow">FAQ</p>
+    <h2>Web design Bridgewater questions.</h2>
+  </div>
+  <div class="container lp-faqchat-thread reveal delay-1">
+    <div class="lp-faqchat-item" data-faqchat>
+      <button class="lp-faqchat-q" type="button">Do you design websites for small businesses in Bridgewater?</button>
+      <div class="lp-faqchat-a">Yes. We work with independent and small businesses across Bridgewater and the South Shore, from single-location shops to multi-service operations.</div>
+    </div>
+    <div class="lp-faqchat-item" data-faqchat>
+      <button class="lp-faqchat-q" type="button">Our current website was built years ago. Can you rebuild it?</button>
+      <div class="lp-faqchat-a">Yes. We can rebuild an older Bridgewater business website with a modern layout, updated content, and mobile-friendly design while keeping the domain and reputation intact.</div>
+    </div>
+    <div class="lp-faqchat-item" data-faqchat>
+      <button class="lp-faqchat-q" type="button">Do you only work with Bridgewater, or the wider South Shore too?</button>
+      <div class="lp-faqchat-a">We support Bridgewater along with nearby South Shore communities such as Lunenburg, Mahone Bay, and Liverpool.</div>
+    </div>
+    <div class="lp-faqchat-item" data-faqchat>
+      <button class="lp-faqchat-q" type="button">What does a typical Bridgewater web design project include?</button>
+      <div class="lp-faqchat-a">A typical project includes homepage and service page design, mobile optimization, contact and quote forms, basic SEO setup, and launch support.</div>
+    </div>
+  </div>
+</section>
+<section class="lp-final">
+  <div class="container lp-final-grid">
+    <div class="reveal">
+      <p class="eyebrow">Start your Bridgewater website project</p>
+      <h2>Let's build a website your customers actually enjoy using.</h2>
+      <p style="margin-top:20px;max-width:460px;">Tell us about your business and what you'd like your website to do for you. We'll recommend a clear, honest scope.</p>
+      <ul class="lp-final-checks">
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free 20-minute scope call</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply within 24 hours</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>No obligation, no generic package push</li>
+      </ul>
+      <div class="lp-final-tags" aria-label="Included services">
+        <span>Web Design</span><span>Mobile-Friendly Build</span><span>Basic SEO Setup</span><span>Contact & Quote Forms</span><span>Ongoing Support</span>
+      </div>
+    </div>
+    <form class="lp-final-form-card reveal delay-1" data-contact-form>
+      <h3 class="lp-form-title">Ready to chat? So are we!</h3>
+      <p class="lp-form-intro">Fill out this form and a web design consultant will be in touch shortly.</p>
+      <div class="lp-field-row">
+        <label>Full Name<span class="req">*</span><input required type="text" name="name" autocomplete="name" placeholder="Jane Smith" /></label>
+        <label>Email<span class="req">*</span><input required type="email" name="email" autocomplete="email" placeholder="you@business.com" /></label>
+      </div>
+      <div class="lp-field-row">
+        <label>Business Name<input type="text" name="company" autocomplete="organization" placeholder="Your business name" /></label>
+        <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="Optional" /></label>
+      </div>
+      <label>Estimated Budget
+        <select name="budget">
+          <option value="" selected disabled>Please select</option>
+          <option>Under $2,500</option>
+          <option>$2,500 - $5,000</option>
+          <option>$5,000 - $10,000</option>
+          <option>$10,000 - $25,000</option>
+          <option>$25,000+</option>
+        </select>
+      </label>
+      <label>Tell us about your project<span class="req">*</span><textarea required name="message" placeholder="What are you hoping to improve or build?"></textarea></label>
+      <button class="button primary" type="submit">Book Your Free Design Consultation</button>
+      <p class="form-note" style="margin-top:14px;">Your details are sent securely to Ovia Tech. We only use them to review your inquiry and reply with a practical next step.</p>
+    </form>
+  </div>
+</section>
+ </main>
+ <footer class="footer">
+  <div class="container footer-inner footer-mega">
+    <div class="footer-brand-col">
+      <a class="brand" href="/" aria-label="Ovia Tech home"><img class="brand-logo brand-logo-white" src="/assets/Ovia-new-logo-white.svg" alt="Ovia Tech" /><img class="brand-logo brand-logo-black" src="/assets/Ovia-new-logo-blk.svg" alt="Ovia Tech" /></a>
+      <p class="footer-tagline">Global software development, AI automation, SEO, and digital product delivery for businesses across the USA, Canada, and worldwide.</p>
+      <a class="footer-brand-cta" href="/pages/contact">Book Consultation →</a>
+    </div>
+    <nav class="footer-links-grid" aria-label="Footer sitemap">
+      <div class="footer-col">
+        <span class="footer-col-title">Development</span>
+        <a href="/services/frontend-development">Frontend Development</a>
+        <a href="/services/backend-development">Backend Development</a>
+        <a href="/services/cms-implementation">CMS Implementation</a>
+        <a href="/services/api-system-integrations">Systems Integrations</a>
+        <a href="/services/technical-qa">Technical QA</a>
+        <a href="/services/web-development">Website Development</a>
+        <a href="/services/ecommerce-development">eCommerce Development</a>
+        <a href="/services/mobile-app-development">Mobile App Development</a>
+        <a href="/services/custom-software-development">Custom Software Development</a>
+        <span class="footer-col-title footer-subtitle">Resources</span>
+        <a href="/pages/blog">Blog</a>
+        <a href="/website-cost-guide">Website Cost Guide</a>
+        <a href="/best-ai-tools">Best AI Tools</a>
+        <a href="/automate-business-workflows-ai">AI Workflow Automation</a>
+        <a href="/custom-software-development-cost-startups">Startup Software Cost</a>
+        <a href="/best-web-design-agencies-atlantic-canada">Atlantic Canada Web Design</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Design</span>
+        <a href="/services/web-design">Web Design</a>
+        <a href="/services/ui-ux-design">UI/UX Design</a>
+        <a href="/services/design-systems">Design Systems</a>
+        <a href="/services/branding">Branding</a>
+        <a href="/website-design-usa">Website Design USA</a>
+        <a href="/website-design-canada">Website Design Canada</a>
+        <a href="/web-development-new-york">Web Development New York</a>
+        <a href="/web-development-toronto">Web Development Toronto</a>
+        <a href="/web-development-vancouver">Web Development Vancouver</a>
+        <a href="/web-design-halifax">Web Design Halifax</a>
+        <a href="/web-design-bridgewater">Web Design Bridgewater</a>
+        <a href="/web-development-halifax">Web Development Services Halifax</a>
+        <span class="footer-col-title footer-subtitle">SEO</span>
+        <a href="/services/seo-services">SEO Services</a>
+        <a href="/local-seo">Local SEO</a>
+        <a href="/on-page-seo">On-Page SEO</a>
+        <a href="/technical-seo">Technical SEO</a>
+        <a href="/seo-halifax">SEO Halifax</a>
+        <a href="/seo-canada">SEO Canada</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Solutions</span>
+        <a href="/services/saas-development">SaaS Development</a>
+        <a href="/services/ai-automation-solutions">AI Automation Solutions</a>
+        <a href="/services/maintenance-support">Maintenance &amp; Support</a>
+        <a href="/website-redesigns">Website Redesigns</a>
+        <a href="/saas-vs-custom-website">SaaS vs Custom Website</a>
+        <a href="/software-development-tools">Software Development Tools</a>
+        <span class="footer-col-title footer-subtitle">Service Stacks</span>
+        <a href="/services/web-development">HTML/CSS/JavaScript</a>
+        <a href="/services/frontend-development">Frontend Frameworks</a>
+        <a href="/services/backend-development">Backend APIs</a>
+        <a href="/services/cms-implementation">CMS Platforms</a>
+        <a href="/services/ecommerce-development">Shopify &amp; eCommerce</a>
+        <a href="/services/mobile-app-development">Flutter &amp; Mobile Apps</a>
+        <a href="/services/api-system-integrations">Supabase &amp; Integrations</a>
+        <a href="/services/maintenance-support">Hosting &amp; Maintenance</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Technologies</span>
+        <a href="/technologies">Technologies Overview</a>
+        <a href="/technologies/contentful">Contentful</a>
+        <a href="/technologies/sanity-cms">Sanity CMS</a>
+        <a href="/technologies/builder-io">Builder.io</a>
+        <a href="/technologies/storyblok">Storyblok</a>
+        <a href="/technologies/datocms">DatoCMS</a>
+        <a href="/technologies/hubspot-cms">HubSpot CMS</a>
+        <a href="/technologies/webflow">Webflow</a>
+        <a href="/technologies/wordpress">WordPress</a>
+        <a href="/technologies/gatsby">Gatsby</a>
+        <a href="/technologies/nextjs">Next.js</a>
+        <a href="/technologies/vercel">Vercel</a>
+        <a href="/technologies/netlify">Netlify</a>
+        <a href="/technologies/php">PHP</a>
+        <a href="/technologies/shopify">Shopify</a>
+        <a href="/technologies/nodejs">Node.js</a>
+        <a href="/technologies/reactjs">React.js</a>
+      </div>
+      <div class="footer-col footer-col-contact">
+        <span class="footer-col-title">Company</span>
+        <a href="/pages/about">About</a>
+        <a href="/pages/services">All Services</a>
+        <a href="/pages/work">Case Studies</a>
+        <a href="/pages/pricing">Pricing</a>
+        <a href="/pages/contact">Contact Us</a>
+        <a href="/pages/author/allen">Author Profile</a>
+        <a href="/pages/privacy-policy">Privacy Policy</a>
+        <span class="footer-col-title footer-subtitle">Industries</span>
+        <a href="/pages/industries">Industries Overview</a>
+        <a href="/industries/healthcare-medspas">Healthcare &amp; Med Spas</a>
+        <a href="/industries/real-estate">Real Estate</a>
+        <a href="/industries/law-firms">Law Firms</a>
+        <a href="/industries/restaurants-hospitality">Restaurants &amp; Hospitality</a>
+        <a href="/industries/independent-schools">Independent Schools</a>
+      </div>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Ovia Tech. All rights reserved.</span>
+    <span>Built for secure, scalable global delivery.</span>
+  </div>
+</footer>
+
+
+
+<div class="consultation-modal" id="consultation-modal" data-consultation-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">
+  <div class="consultation-modal-panel">
+    <button class="consultation-close" type="button" aria-label="Close consultation form" data-consultation-close>&times;</button>
+    <div class="consultation-modal-copy">
+      <p class="consultation-kicker">A premium web agency</p>
+      <h2 id="consultation-modal-title">Ready to chat?</h2>
+      <p class="consultation-intro">Tell us what you are building, improving, or trying to fix. We will review your goals and share the clearest next step for your website, SaaS product, or automation project.</p>
+      <div class="consultation-benefits">
+        <div class="consultation-benefit">
+          <span class="consultation-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 15.5 3.5 21l5.5-1.5L19 9.5 15.5 6 5 15.5Z" stroke="currentColor"/><path d="m14 7.5 2.5 2.5" stroke="currentColor"/></svg></span>
+          <div><strong>Future-proof websites</strong><span>Strategy, design, development, SEO, and performance improvements planned around business growth.</span></div>
+        </div>
+        <div class="consultation-benefit">
+          <span class="consultation-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12 20 4l-5.5 16-3-7.5L4 12Z" stroke="currentColor"/><path d="m11.5 12.5 4-4" stroke="currentColor"/></svg></span>
+          <div><strong>Personalized roadmap</strong><span>Get practical direction on scope, budget, timeline, and the highest-impact improvements first.</span></div>
+        </div>
+      </div>
+      <p class="consultation-trust-label">Trusted for modern digital builds</p>
+      <div class="consultation-logo-row" aria-label="Project types">
+        <span>SaaS</span><span>Web Design</span><span>eCommerce</span><span>SEO</span>
+      </div>
+    </div>
+    <div class="consultation-modal-form-wrap">
+      <form class="consultation-modal-form" data-consultation-form>
+        <div class="consultation-field">
+          <label for="consultation-email">Business Email *</label>
+          <input id="consultation-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="consultation-field">
+          <label for="consultation-project">Tell us more about your website project. *</label>
+          <textarea id="consultation-project" name="project" required></textarea>
+        </div>
+        <div class="consultation-field">
+          <label for="consultation-budget">What is your estimated website budget? *</label>
+          <select id="consultation-budget" name="budget" required>
+            <option value="">Select an option</option>
+            <option value="Under $2,500">Under $2,500</option>
+            <option value="$2,500 - $5,000">$2,500 - $5,000</option>
+            <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+            <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+            <option value="$25,000+">$25,000+</option>
+          </select>
+        </div>
+        <div class="consultation-field">
+          <label for="consultation-referral">How did you hear about us? *</label>
+          <input id="consultation-referral" name="referral" type="text" required>
+        </div>
+        <button class="consultation-submit" type="submit">Chat with an expert</button>
+        <p class="consultation-form-status" data-consultation-status aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/main.js"></script>
+<script>
+(function(){
+  // Audience/persona tabs
+  var tabWrap = document.querySelector('[data-persona-tabs]');
+  if (tabWrap) {
+    var tabs = tabWrap.querySelectorAll('.lp-persona-tab');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var target = tab.getAttribute('data-persona');
+        tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        document.querySelectorAll('[data-persona-panel]').forEach(function(p){
+          p.classList.toggle('active', p.getAttribute('data-persona-panel') === target);
+        });
+      });
+    });
+  }
+
+  // Before/after compare slider
+  var compare = document.querySelector('[data-compare]');
+  if (compare) {
+    var range = compare.querySelector('[data-compare-range]');
+    var newPane = compare.querySelector('[data-compare-new]');
+    var handle = compare.querySelector('[data-compare-handle]');
+    var update = function(val){
+      newPane.style.clipPath = 'inset(0 0 0 ' + val + '%)';
+      handle.style.left = val + '%';
+    };
+    range.addEventListener('input', function(){ update(range.value); });
+    update(range.value);
+  }
+
+  // FAQ chat toggles
+  document.querySelectorAll('[data-faqchat]').forEach(function(item){
+    var q = item.querySelector('.lp-faqchat-q');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('[data-faqchat]').forEach(function(i){ i.classList.remove('is-open'); });
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+ </body>
+</html>

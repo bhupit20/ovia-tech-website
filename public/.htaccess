@@ -91,3 +91,9 @@ RewriteRule ^industries/independent-schools/?$ pages/industries/independent-scho
 
 RewriteRule ^web-development-toronto/?$ pages/web-development-toronto.html [L]
 RewriteRule ^web-development-vancouver/?$ pages/web-development-vancouver.html [L]
+
+RewriteRule ^web-design-halifax/?$ pages/web-design-halifax.html [L]
+RewriteRule ^web-design-bridgewater/?$ pages/web-design-bridgewater.html [L]
+RewriteRule ^web-development-halifax/?$ pages/web-development-halifax.html [L]
+RewriteRule ^seo-halifax/?$ pages/seo-halifax.html [L]
+RewriteRule ^seo-canada/?$ pages/seo-canada.html [L]

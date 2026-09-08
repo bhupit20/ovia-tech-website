@@ -12,6 +12,11 @@ const serviceRouteRewrites = {
   "/industries/law-firms": "/pages/industries/law-firms.html",
   "/industries/restaurants-hospitality": "/pages/industries/restaurants-hospitality.html",
   "/industries/independent-schools": "/pages/industries/independent-schools.html",
+  "/web-design-halifax": "/pages/web-design-halifax.html",
+  "/web-design-bridgewater": "/pages/web-design-bridgewater.html",
+  "/web-development-halifax": "/pages/web-development-halifax.html",
+  "/seo-halifax": "/pages/seo-halifax.html",
+  "/seo-canada": "/pages/seo-canada.html",
   "/local-seo": "/pages/resources/local-seo.html",
   "/on-page-seo": "/pages/resources/on-page-seo.html",
   "/technical-seo": "/pages/resources/technical-seo.html",
@@ -186,7 +191,12 @@ export default defineConfig({
         blogPost27: resolve(__dirname, "pages/blog/web-design-agency-near-me-vs-remote.html"),
         blogPost28: resolve(__dirname, "pages/blog/corporate-web-design-2026.html"),
         privacyPolicy: resolve(__dirname, "pages/privacy-policy.html"),
-        authorAllen: resolve(__dirname, "pages/author/allen.html")
+        authorAllen: resolve(__dirname, "pages/author/allen.html"),
+        webDesignHalifax: resolve(__dirname, "pages/web-design-halifax.html"),
+        webDesignBridgewater: resolve(__dirname, "pages/web-design-bridgewater.html"),
+        webDevelopmentHalifax: resolve(__dirname, "pages/web-development-halifax.html"),
+        seoHalifax: resolve(__dirname, "pages/seo-halifax.html"),
+        seoCanada: resolve(__dirname, "pages/seo-canada.html")
       }
     }
   }

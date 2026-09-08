@@ -258,6 +258,33 @@
   to   = "/pages/web-development-vancouver.html"
   status = 200
 
+# --- Halifax / Bridgewater / Canada SEO landing pages ---
+
+[[redirects]]
+  from = "/web-design-halifax"
+  to   = "/pages/web-design-halifax.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-design-bridgewater"
+  to   = "/pages/web-design-bridgewater.html"
+  status = 200
+
+[[redirects]]
+  from = "/web-development-halifax"
+  to   = "/pages/web-development-halifax.html"
+  status = 200
+
+[[redirects]]
+  from = "/seo-halifax"
+  to   = "/pages/seo-halifax.html"
+  status = 200
+
+[[redirects]]
+  from = "/seo-canada"
+  to   = "/pages/seo-canada.html"
+  status = 200
+
 # --- Redirects for consolidated duplicate blog posts (old URL -> canonical resource page) ---
 
 [[redirects]]
