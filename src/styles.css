@@ -5129,6 +5129,30 @@ select option { background: #0a1022; }
   --thumb-accent-2: #cffafe;
 }
 
+.thumb-halifax-cost {
+  --thumb-bg: linear-gradient(135deg, #082f49 0%, #0369a1 50%, #38bdf8 100%);
+  --thumb-accent: #7dd3fc;
+  --thumb-accent-2: #a5f3fc;
+}
+
+.thumb-halifax-seo {
+  --thumb-bg: linear-gradient(135deg, #052e16 0%, #15803d 50%, #86efac 100%);
+  --thumb-accent: #4ade80;
+  --thumb-accent-2: #bbf7d0;
+}
+
+.thumb-ns-agency {
+  --thumb-bg: linear-gradient(135deg, #1e1b4b 0%, #6d28d9 50%, #c4b5fd 100%);
+  --thumb-accent: #a78bfa;
+  --thumb-accent-2: #ddd6fe;
+}
+
+.thumb-halifax-redesign {
+  --thumb-bg: linear-gradient(135deg, #431407 0%, #c2410c 50%, #fdba74 100%);
+  --thumb-accent: #fb923c;
+  --thumb-accent-2: #fed7aa;
+}
+
 .thumb-saas-guide {
   --thumb-bg: linear-gradient(135deg, #172554 0%, #4f46e5 50%, #14b8a6 100%);
   --thumb-accent: #818cf8;
